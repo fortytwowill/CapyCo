@@ -1,0 +1,17 @@
+# robots.txt for CapyCo
+# Capybara Corporation - Vibe Coding & Marketing Agency
+# https://capyco.dev
+
+# Allow all crawlers
+User-agent: *
+
+# Disallow admin routes (if they exist)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+
+# Allow everything else
+Allow: /
+
+# Sitemap location
+Sitemap: https://capyco.dev/sitemap.xml
