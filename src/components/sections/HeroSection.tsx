@@ -4,14 +4,23 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export function HeroSection() {
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 100]);
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+    const [mascotIdx, setMascotIdx] = useState(1);
+
+    useEffect(() => {
+        const lastIdx = parseInt(localStorage.getItem('mascotIdx') || '0', 10);
+        const nextIdx = (lastIdx % 10) + 1;
+        setMascotIdx(nextIdx);
+        localStorage.setItem('mascotIdx', nextIdx.toString());
+    }, []);
 
     return (
-        <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col items-center justify-center bg-background">
+        <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col items-center justify-center bg-background" suppressHydrationWarning>
             {/* Ambient background glow centered behind mascot */}
             <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 blur-[120px] rounded-full sm:w-[800px] sm:h-[800px] pointer-events-none" />
             <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/20 blur-[100px] rounded-full pointer-events-none" />
@@ -81,11 +90,12 @@ export function HeroSection() {
                     >
                         {/* The mascot is visually placed here. For best results, use an image with transparency. */}
                         <Image
-                            src="/images/capyco-mascot.png"
-                            alt="CapyCo Mascot Developer"
+                            src={`/images/mascots/mascot_${mascotIdx}.png`}
+                            alt={`CapyCo Mascot ${mascotIdx}`}
                             fill
                             priority
                             className="object-contain drop-shadow-2xl"
+                            suppressHydrationWarning
                         />
                     </motion.div>
                 </motion.div>

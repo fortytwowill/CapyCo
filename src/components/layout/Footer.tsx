@@ -10,14 +10,13 @@ export function Footer() {
 
                     <div className="md:col-span-1">
                         <Link href="/" className="flex items-center gap-2 mb-4">
-                            <div className="relative w-8 h-8">
-                                <Image
-                                    src="/images/capyco-mascot.png"
-                                    alt="CapyCo Mascot"
-                                    fill
-                                    className="object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                                />
-                            </div>
+                            <Image
+                                src="/images/capyco-icon.png"
+                                alt="CapyCo Capybara"
+                                width={32}
+                                height={32}
+                                className="object-contain rounded-full"
+                            />
                             <span className="font-outfit font-bold text-xl text-foreground">
                                 CapyCo
                             </span>

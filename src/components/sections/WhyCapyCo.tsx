@@ -98,9 +98,6 @@ export function WhyCapyCo() {
                                     transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
                                     className="w-full md:w-1/2 space-y-6 text-center md:text-left"
                                 >
-                                    <div className="inline-flex items-center rounded-full border border-border bg-card px-3 py-1 text-sm font-semibold uppercase tracking-wider text-muted-foreground shadow-sm">
-                                        {String(index + 1).padStart(2, '0')}
-                                    </div>
                                     <h3 className="text-3xl md:text-4xl font-bold font-outfit text-foreground">{feature.title}</h3>
                                     <p className="text-lg text-muted-foreground leading-relaxed">
                                         {feature.description}
