@@ -14,7 +14,7 @@ const navLinks = [
 ];
 
 const productItems = [
-    { name: "iCTRL", href: "https://ictrl.capyco.ca", description: "Warehouse management" },
+    { name: "iCTRL", href: "https://ictrl.app", description: "Warehouse management" },
     { name: "More soon...", href: null, description: "Stay tuned for updates" },
 ];
 
