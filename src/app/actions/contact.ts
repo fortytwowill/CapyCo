@@ -1,5 +1,6 @@
 "use server";
 
+import { headers } from "next/headers";
 import { Resend } from "resend";
 import { contactFormSchema, type ContactFormValues } from "@/lib/validations";
 import { checkRateLimit } from "@/lib/rate-limiter";
@@ -17,7 +18,29 @@ const resend = process.env.RESEND_API_KEY
 
 const CONTACT_EMAIL_TO = process.env.CONTACT_EMAIL_TO || "contact@capyco.ca";
 
-const FROM_EMAIL = process.env.FROM_EMAIL || "contact@capyco.dev";
+const FROM_EMAIL = process.env.FROM_EMAIL || "onboarding@resend.dev";
+
+function escapeHtml(value: string): string {
+    return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
+
+async function getClientIpFromHeaders(): Promise<string> {
+    const requestHeaders = await headers();
+    const forwardedFor = requestHeaders.get("x-forwarded-for");
+    const realIp = requestHeaders.get("x-real-ip");
+    const cloudflareIp = requestHeaders.get("cf-connecting-ip");
+
+    if (forwardedFor) {
+        return forwardedFor.split(",")[0]?.trim() || "unknown";
+    }
+
+    return cloudflareIp || realIp || "unknown";
+}
 
 // Next.js 15 Server Action
 export async function submitContactForm(
@@ -57,7 +80,7 @@ export async function submitContactForm(
     }
 
     // -- ANTI-BOT LAYER 3: Rate Limiting --
-    const ip = clientIp || "unknown";
+    const ip = clientIp || await getClientIpFromHeaders();
     const rateLimitResult = checkRateLimit(ip, {
         maxRequests: 5,
         windowMs: 60 * 60 * 1000, // 1 hour
@@ -85,30 +108,36 @@ export async function submitContactForm(
         // Log submission for debugging
         console.log("New valid contact submission:", submissionDetails);
 
-        // Send email via Resend if configured
-        if (resend) {
-            const emailResult = await resend.emails.send({
-                from: `CapyCo Contact <${FROM_EMAIL}>`,
-                to: CONTACT_EMAIL_TO,
-                replyTo: email,
-                subject: `New Contact Form Submission from ${name}`,
-                html: `
-                    <h2>New Contact Form Submission</h2>
-                    <p><strong>Name:</strong> ${name}</p>
-                    <p><strong>Email:</strong> ${email}</p>
-                    <p><strong>Company:</strong> ${company || "N/A"}</p>
-                    <p><strong>Message:</strong></p>
-                    <blockquote style="border-left: 4px solid #D4952B; padding-left: 16px; margin-left: 0;">
-                        ${message.replace(/\n/g, "<br>")}
-                    </blockquote>
-                    <hr style="margin: 20px 0;" />
-                    <p style="color: #666; font-size: 12px;">
-                        Submitted from: ${submissionDetails.source}<br>
-                        Time taken: ${timeTaken}ms<br>
-                        Timestamp: ${submissionDetails.submittedAt}
-                    </p>
-                `,
-                text: `New Contact Form Submission
+        if (!resend) {
+            console.error("Missing RESEND_API_KEY. Contact form email was not sent.");
+            return {
+                success: false,
+                message: "Contact form email is not configured yet. Add RESEND_API_KEY and try again.",
+            };
+        }
+
+        const emailResult = await resend.emails.send({
+            from: `CapyCo Contact <${FROM_EMAIL}>`,
+            to: [CONTACT_EMAIL_TO],
+            replyTo: email,
+            subject: `New Contact Form Submission from ${name}`,
+            html: `
+                <h2>New Contact Form Submission</h2>
+                <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+                <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+                <p><strong>Company:</strong> ${escapeHtml(company || "N/A")}</p>
+                <p><strong>Message:</strong></p>
+                <blockquote style="border-left: 4px solid #D4952B; padding-left: 16px; margin-left: 0;">
+                    ${escapeHtml(message).replace(/\n/g, "<br>")}
+                </blockquote>
+                <hr style="margin: 20px 0;" />
+                <p style="color: #666; font-size: 12px;">
+                    Submitted from: ${escapeHtml(submissionDetails.source)}<br>
+                    Time taken: ${timeTaken}ms<br>
+                    Timestamp: ${escapeHtml(submissionDetails.submittedAt)}
+                </p>
+            `,
+            text: `New Contact Form Submission
 
 Name: ${name}
 Email: ${email}
@@ -121,19 +150,17 @@ ${message}
 Submitted from: ${submissionDetails.source}
 Time taken: ${timeTaken}ms
 Timestamp: ${submissionDetails.submittedAt}`,
-            });
+        });
 
-            if (emailResult.error) {
-                console.error("Resend error:", emailResult.error);
-                // Still return success to user, but log the error
-                // In production, you might want to retry or use a fallback
-            } else {
-                console.log("Email sent successfully:", emailResult.data?.id);
-            }
-        } else {
-            console.log("Resend not configured - email would be sent in production");
-            console.log("To enable emails, set RESEND_API_KEY in .env.local");
+        if (emailResult.error || !emailResult.data?.id) {
+            console.error("Resend error:", emailResult.error);
+            return {
+                success: false,
+                message: "We couldn't send your message right now. Please try again in a few minutes.",
+            };
         }
+
+        console.log("Email sent successfully:", emailResult.data.id);
 
         return {
             success: true,
@@ -142,11 +169,9 @@ Timestamp: ${submissionDetails.submittedAt}`,
     } catch (error) {
         console.error("Error sending email:", error);
 
-        // Return success anyway - we don't want to lose leads due to email errors
-        // In production, you should set up proper error monitoring
         return {
-            success: true,
-            message: "Thanks! Your message has been received. We'll be in touch soon.",
+            success: false,
+            message: "We couldn't send your message right now. Please try again later.",
         };
     }
 }

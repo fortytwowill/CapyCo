@@ -1,15 +1,12 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export function HeroSection() {
-    const { scrollY } = useScroll();
-    const y = useTransform(scrollY, [0, 500], [0, 100]);
-    const opacity = useTransform(scrollY, [0, 300], [1, 0]);
     const [mascotIdx, setMascotIdx] = useState(1);
 
     useEffect(() => {
@@ -71,7 +68,6 @@ export function HeroSection() {
 
                 {/* Mascot Image Block - Centered below text */}
                 <motion.div
-                    style={{ y, opacity }}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}

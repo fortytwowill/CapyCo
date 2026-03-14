@@ -100,8 +100,8 @@ export default function PrivacyPage() {
                         Depending on your location, you may have certain rights regarding your
                         personal information, including the right to access, correct, or delete
                         your data. To exercise these rights, please contact us at{" "}
-                        <a href="mailto:hello@capyco.dev" className="text-primary hover:underline">
-                            hello@capyco.dev
+                        <a href="mailto:contact@capyco.ca" className="text-primary hover:underline">
+                            contact@capyco.ca
                         </a>.
                     </p>
 
@@ -119,8 +119,8 @@ export default function PrivacyPage() {
                     </h2>
                     <p className="text-foreground/80 mb-6">
                         If you have any questions about this Privacy Policy, please contact us at:{" "}
-                        <a href="mailto:hello@capyco.dev" className="text-primary hover:underline">
-                            hello@capyco.dev
+                        <a href="mailto:contact@capyco.ca" className="text-primary hover:underline">
+                            contact@capyco.ca
                         </a>
                     </p>
                 </div>

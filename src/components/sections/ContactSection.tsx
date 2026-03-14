@@ -56,7 +56,7 @@ export function ContactSection() {
                 setSubmitStatus("error");
                 setSubmitMessage(response.message);
             }
-        } catch (error) {
+        } catch {
             setSubmitStatus("error");
             setSubmitMessage("Something went wrong. Please try again later.");
         } finally {
@@ -70,7 +70,7 @@ export function ContactSection() {
 
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <h2 className="text-4xl md:text-5xl font-bold font-outfit text-foreground mb-6">
-                        Let's Make <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Magic</span>
+                        Let&apos;s Make <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Magic</span>
                     </h2>
                     <p className="text-lg text-muted-foreground">
                         Whether you have a specific project in mind or just want to vibe over ideas, our inbox is always open.

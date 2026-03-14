@@ -74,7 +74,7 @@ export function Footer() {
                 <div className="border-t border-border pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
                     <p>© {new Date().getFullYear()} CapyCo. All rights reserved.</p>
                     <div className="flex items-center gap-1">
-                        Made with <span className="text-accent px-1">☕</span> in Canada by Brazilians 🇧🇷🇨🇦
+                        Made with a lot of Brazilian <span className="text-accent px-1">☕</span> in Canada 🇧🇷🇨🇦
                     </div>
                 </div>
             </div>
