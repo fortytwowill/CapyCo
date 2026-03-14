@@ -15,7 +15,7 @@ const resend = process.env.RESEND_API_KEY
     ? new Resend(process.env.RESEND_API_KEY)
     : null;
 
-const CONTACT_EMAIL_TO = process.env.CONTACT_EMAIL_TO || "hello@capyco.dev";
+const CONTACT_EMAIL_TO = process.env.CONTACT_EMAIL_TO || "contact@capyco.ca";
 
 const FROM_EMAIL = process.env.FROM_EMAIL || "contact@capyco.dev";
 

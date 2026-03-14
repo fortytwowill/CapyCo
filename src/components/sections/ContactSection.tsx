@@ -91,7 +91,7 @@ export function ContactSection() {
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-foreground">Email</h4>
-                                        <p className="text-muted-foreground">hello@capyco.dev</p>
+                                        <p className="text-muted-foreground">contact@capyco.ca</p>
                                     </div>
                                 </div>
 
@@ -101,8 +101,7 @@ export function ContactSection() {
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-foreground">HQ</h4>
-                                        <p className="text-muted-foreground">Toronto, ON, Canada</p>
-                                        <p className="text-xs text-muted-foreground mt-1">Founders from 🇧🇷</p>
+                                        <p className="text-muted-foreground">Calgary, AB, Canada</p>
                                     </div>
                                 </div>
 
@@ -184,6 +183,7 @@ export function ContactSection() {
                                                 placeholder="john@example.com"
                                                 {...register("email")}
                                                 className={`w-full px-4 py-3 rounded-xl bg-card border focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors ${errors.email ? 'border-destructive' : 'border-border'}`}
+                                                suppressHydrationWarning
                                             />
                                             {errors.email && <p className="text-xs text-destructive mt-1">{errors.email.message}</p>}
                                         </div>
