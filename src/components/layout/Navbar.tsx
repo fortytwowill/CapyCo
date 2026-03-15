@@ -8,9 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Products", href: "#products", hasDropdown: true },
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
+    { name: "Products", href: "/#products", hasDropdown: true },
+    { name: "Services", href: "/#services" },
+    { name: "About Us", href: "/#about" },
 ];
 
 const productItems = [
@@ -159,7 +159,7 @@ export function Navbar() {
                         </div>
 
                         <Link
-                            href="#contact"
+                            href="/#contact"
                             className="px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm transition-transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                         >
                             Contact
@@ -250,7 +250,7 @@ export function Navbar() {
                             )}
                             <div className="mt-8">
                                 <Link
-                                    href="#contact"
+                                    href="/#contact"
                                     className="inline-block px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-lg w-full text-center"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >

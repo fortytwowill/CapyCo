@@ -43,29 +43,23 @@ export function Footer() {
                     <div>
                         <h4 className="font-outfit font-semibold text-foreground mb-4">Products</h4>
                         <ul className="space-y-3 text-sm text-muted-foreground">
-                            <li><Link href="#products" className="hover:text-primary transition-colors">CapyAnalytics</Link></li>
-                            <li><Link href="#products" className="hover:text-primary transition-colors">VibeBuilder SaaS</Link></li>
-                            <li><Link href="#products" className="hover:text-primary transition-colors">Social Booster</Link></li>
-                            <li><Link href="#products" className="hover:text-primary transition-colors">Pricing</Link></li>
+                            <li><a href="https://ictrl.app" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">iCTRL</a></li>
+                            <li><span className="text-muted-foreground/50 cursor-default">More soon...</span></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-outfit font-semibold text-foreground mb-4">Services</h4>
                         <ul className="space-y-3 text-sm text-muted-foreground">
-                            <li><Link href="#services" className="hover:text-primary transition-colors">Custom Web Apps</Link></li>
-                            <li><Link href="#services" className="hover:text-primary transition-colors">Performance Marketing</Link></li>
-                            <li><Link href="#services" className="hover:text-primary transition-colors">SEO & Content</Link></li>
-                            <li><Link href="#services" className="hover:text-primary transition-colors">UI/UX Design</Link></li>
+                            <li><span className="text-muted-foreground/50 cursor-default">More soon...</span></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-outfit font-semibold text-foreground mb-4">Company</h4>
                         <ul className="space-y-3 text-sm text-muted-foreground">
-                            <li><Link href="#about" className="hover:text-primary transition-colors">About Us</Link></li>
-                            <li><Link href="#careers" className="hover:text-primary transition-colors">Careers</Link></li>
-                            <li><Link href="#contact" className="hover:text-primary transition-colors">Contact</Link></li>
+                            <li><Link href="/#about" className="hover:text-primary transition-colors">About Us</Link></li>
+                            <li><Link href="/#contact" className="hover:text-primary transition-colors">Contact</Link></li>
                             <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
                         </ul>
                     </div>

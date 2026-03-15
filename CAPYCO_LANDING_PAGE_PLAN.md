@@ -197,8 +197,8 @@ UPSTASH_REDIS_REST_TOKEN=xxx
 - **H1:** "Build. Ship. Grow." (Outfit Bold, Deep Navy, clamp(2.5rem, 5vw, 4rem))
 - **Subtext:** "We're a vibe-first coding & marketing agency that turns wild ideas into digital magic."
 - **CTAs:**
-  - Primary: "Get Started" (amber, scrolls to #contact)
-  - Secondary: "Learn More" (navy outline, scrolls to #services)
+  - Primary: "Start Your Project" (amber, scrolls to #contact)
+  - Secondary: "Explore Services" (navy outline, scrolls to #services)
 - **Trust pills:** Three badges with checkmarks showing capabilities
 - **Mascot:** Capybara PNG with floating animation (see Animation System)
 - **Responsive:** Stack vertically on mobile, reduce font sizes
@@ -230,7 +230,7 @@ UPSTASH_REDIS_REST_TOKEN=xxx
 
 - **Animation:** Cards fade-in + slide-up on scroll (staggered 100ms)
 - **Hover:** Subtle lift + shadow increase + accent color border
-- **Icons:** Lucide icons (Monitor, Megaphone, Wrench)
+- **Icons:** Lucide icons (Terminal, Megaphone, Wrench)
 - **Responsive:** 3-col → 2-col → 1-col (lg, md, sm breakpoints)
 
 ### 4. 🌟 Why CapyCo? (Features/Benefits)
@@ -545,8 +545,8 @@ export const siteContent = {
   hero: {
     headline: "Build. Ship. Grow.",
     subtext: "We're a vibe-first coding & marketing agency that turns wild ideas into digital magic.",
-    primaryCta: "Get Started",
-    secondaryCta: "Learn More",
+    primaryCta: "Start Your Project",
+    secondaryCta: "Explore Services",
     trustPills: ["SaaS Products", "Marketing", "Dev Services"]
   },
   services: [
@@ -767,6 +767,32 @@ npm run dev
 
 ---
 
-*Last updated: March 7, 2026*
+*Last updated: March 15, 2026*
 *Plan created by: Antigravity AI Agent*
 *Updated by: Claude Code*
+
+---
+
+## Changelog (March 15, 2026)
+
+### UI Improvements Applied
+- **Hero Section:** Added staggered button animations (fade-in with 0.3s and 0.4s delays)
+- **Services Cards:** Added hover lift effect (`hover:-translate-y-1`) and `cursor-pointer`
+- **Stats Bar:** Added hover border glow (`hover:border-primary/30`) and `cursor-default`
+- **Contact Form:** Enhanced focus states with custom box-shadow rings (3px amber glow)
+- **Mobile Nav:** Increased touch targets with `py-3` on nav links
+- **Testimonials:** Added `cursor-pointer` to pagination dots
+- **Anti-Bot:** Added `suppressHydrationWarning` to all form inputs to prevent browser extension conflicts
+- **Typo Fix:** Corrected "Cabybara" → "Capybara" in metadata
+
+### Button Labels (As Implemented)
+- Primary CTA: "Start Your Project" (scrolls to #contact)
+- Secondary CTA: "Explore Services" (scrolls to #services)
+
+### Recent Updates (March 15, 2026)
+- **Navbar links:** Updated to include `/` prefix (e.g., `/#about`) so they work from any page including /privacy
+- **Navbar rename:** "About" → "About Us" to match footer
+- **Footer Products:** Now shows iCTRL (links to ictrl.app) + "More soon..."
+- **Footer Services:** Now shows "More soon..." (no link, matches Products)
+- **Footer Company:** Removed "Careers" link
+- **Footer About Us & Contact:** Now links to `/#about` and `/#contact` respectively
