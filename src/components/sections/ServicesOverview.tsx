@@ -90,7 +90,7 @@ export function ServicesOverview() {
                             <motion.div
                                 key={index}
                                 variants={itemVariants}
-                                className={`group relative p-8 rounded-3xl bg-background border border-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden ${service.borderColor}`}
+                                className={`group relative p-8 rounded-3xl bg-background border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden cursor-pointer ${service.borderColor}`}
                             >
                                 <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform duration-500">
                                     <Icon className="w-32 h-32" />

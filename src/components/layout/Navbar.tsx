@@ -241,7 +241,7 @@ export function Navbar() {
                                     <Link
                                         key={link.name}
                                         href={link.href}
-                                        className="text-xl font-outfit font-semibold text-foreground"
+                                        className="text-xl font-outfit font-semibold text-foreground py-3"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         {link.name}

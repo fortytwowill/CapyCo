@@ -151,7 +151,7 @@ export function Testimonials() {
                                 setDirection(idx > currentIndex ? 1 : -1);
                                 setCurrentIndex(idx);
                             }}
-                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === currentIndex ? "bg-primary w-6" : "bg-border hover:bg-muted-foreground/30"
+                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${idx === currentIndex ? "bg-primary w-6" : "bg-border hover:bg-muted-foreground/30"
                                 }`}
                             aria-label={`Go to testimonial ${idx + 1}`}
                         />

@@ -44,19 +44,31 @@ export function HeroSection() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                        <Link
-                            href="#contact"
-                            className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-lg w-full sm:w-auto hover:scale-105 hover:shadow-[0_0_30px_rgba(212,149,43,0.4)] transition-all duration-300 flex items-center justify-center group"
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
                         >
-                            Start Your Project
-                            <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                        <Link
-                            href="#services"
-                            className="px-8 py-4 rounded-full border-2 border-foreground/10 text-foreground font-medium text-lg w-full sm:w-auto hover:bg-foreground/5 transition-colors duration-300"
+                            <Link
+                                href="#contact"
+                                className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-lg w-full sm:w-auto hover:scale-105 hover:shadow-[0_0_30px_rgba(212,149,43,0.4)] transition-all duration-300 flex items-center justify-center group cursor-pointer"
+                            >
+                                Start Your Project
+                                <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
                         >
-                            Explore Services
-                        </Link>
+                            <Link
+                                href="#services"
+                                className="px-8 py-4 rounded-full border-2 border-foreground/10 text-foreground font-medium text-lg w-full sm:w-auto hover:bg-foreground/5 transition-colors duration-300 cursor-pointer"
+                            >
+                                Explore Services
+                            </Link>
+                        </motion.div>
                     </div>
 
                     <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 pt-6 text-sm font-medium text-muted-foreground">

@@ -159,6 +159,7 @@ export function ContactSection() {
                                             {...register("website")}
                                             tabIndex={-1}
                                             autoComplete="one-time-code"
+                                            suppressHydrationWarning
                                         />
                                     </div>
 
@@ -170,7 +171,8 @@ export function ContactSection() {
                                                 type="text"
                                                 placeholder="John Doe"
                                                 {...register("name")}
-                                                className={`w-full px-4 py-3 rounded-xl bg-card border focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors ${errors.name ? 'border-destructive' : 'border-border'}`}
+                                                suppressHydrationWarning
+                                                className={`w-full px-4 py-3 rounded-xl bg-card border-2 transition-all duration-200 focus:outline-none focus:ring-0 ${errors.name ? 'border-destructive focus:border-destructive' : 'border-border focus:border-primary focus:shadow-[0_0_0_3px_rgba(212,149,43,0.15)]'}`}
                                             />
                                             {errors.name && <p className="text-xs text-destructive mt-1">{errors.name.message}</p>}
                                         </div>
@@ -182,8 +184,8 @@ export function ContactSection() {
                                                 type="email"
                                                 placeholder="john@example.com"
                                                 {...register("email")}
-                                                className={`w-full px-4 py-3 rounded-xl bg-card border focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors ${errors.email ? 'border-destructive' : 'border-border'}`}
                                                 suppressHydrationWarning
+                                                className={`w-full px-4 py-3 rounded-xl bg-card border-2 transition-all duration-200 focus:outline-none focus:ring-0 ${errors.email ? 'border-destructive focus:border-destructive' : 'border-border focus:border-primary focus:shadow-[0_0_0_3px_rgba(212,149,43,0.15)]'}`}
                                             />
                                             {errors.email && <p className="text-xs text-destructive mt-1">{errors.email.message}</p>}
                                         </div>
@@ -196,7 +198,8 @@ export function ContactSection() {
                                             type="text"
                                             placeholder="Acme Corp"
                                             {...register("company")}
-                                            className="w-full px-4 py-3 rounded-xl bg-card border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors"
+                                            suppressHydrationWarning
+                                            className="w-full px-4 py-3 rounded-xl bg-card border-2 border-border focus:border-primary focus:outline-none focus:ring-0 focus:shadow-[0_0_0_3px_rgba(212,149,43,0.15)] transition-all duration-200"
                                         />
                                     </div>
 
@@ -207,7 +210,8 @@ export function ContactSection() {
                                             rows={5}
                                             placeholder="Tell us about your wild idea..."
                                             {...register("message")}
-                                            className={`w-full px-4 py-3 rounded-xl bg-card border focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors resize-none ${errors.message ? 'border-destructive' : 'border-border'}`}
+                                            suppressHydrationWarning
+                                            className={`w-full px-4 py-3 rounded-xl bg-card border-2 transition-all duration-200 focus:outline-none focus:ring-0 focus:shadow-[0_0_0_3px_rgba(212,149,43,0.15)] resize-none ${errors.message ? 'border-destructive focus:border-destructive' : 'border-border focus:border-primary'}`}
                                         />
                                         {errors.message && <p className="text-xs text-destructive mt-1">{errors.message.message}</p>}
                                     </div>

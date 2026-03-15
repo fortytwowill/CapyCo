@@ -18,7 +18,7 @@ function StatItem({ endValue, suffix, label, delay = 0 }: StatItemProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay, duration: 0.5 }}
-            className="flex flex-col items-center justify-center text-center p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-lg transition-shadow duration-300"
+            className="flex flex-col items-center justify-center text-center p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-default"
         >
             <div className="flex items-baseline gap-1 mb-2">
                 <span className="text-4xl md:text-5xl lg:text-6xl font-black font-outfit text-foreground tracking-tighter">

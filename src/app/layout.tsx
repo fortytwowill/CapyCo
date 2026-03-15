@@ -32,7 +32,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://capyco.dev"),
   title: {
-    default: "CapyCo - Cabybara Corporation",
+    default: "CapyCo - Capybara Corporation",
     template: "%s | CapyCo",
   },
   description: "Build. Ship. Grow. A vibe-first coding & marketing agency founded by Brazilians in Canada. We turn wild ideas into digital magic.",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: "https://capyco.dev",
     siteName: "CapyCo",
-    title: "CapyCo - Cabybara Corporation",
+    title: "CapyCo - Capybara Corporation",
     description: "Build. Ship. Grow. A vibe-first coding & marketing agency founded by Brazilians in Canada.",
     images: [
       {
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CapyCo - Cabybara Corporation",
+    title: "CapyCo - Capybara Corporation",
     description: "Build. Ship. Grow. A vibe-first coding & marketing agency.",
     images: ["/images/og-image.png"],
     creator: "@capyco",
@@ -92,6 +92,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon-capy.png",
+    shortcut: "/favicon-capy.png",
     apple: "/apple-touch-icon-capy.png",
   },
   other: {
