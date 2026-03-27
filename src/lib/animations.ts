@@ -1,137 +1,122 @@
-// Animation configuration for CapyCo landing page
-// Use these constants instead of magic numbers for consistent motion
+// Animation configuration for CapyCo landing page — Dark Theme
+// "Tropical Brutalism meets Soft Futurism"
 
 export const ANIMATION_CONFIG = {
-  // Easing functions
   ease: {
-    smooth: [0.25, 0.1, 0.25, 1] as const,      // General transitions
-    bounce: [0.68, -0.55, 0.265, 1.55] as const, // Playful elements
-    snappy: [0.4, 0, 0.2, 1] as const,          // Micro-interactions
+    smooth: [0.22, 1, 0.36, 1] as const,
+    bounce: [0.68, -0.55, 0.265, 1.55] as const,
+    snappy: [0.4, 0, 0.2, 1] as const,
   },
-
-  // Durations (seconds)
   duration: {
-    fast: 0.15,      // Hovers, toggles
-    normal: 0.3,     // Standard transitions
-    slow: 0.5,       // Scroll reveals
-    mascot: 3,       // Floating loop
+    fast: 0.15,
+    normal: 0.3,
+    slow: 0.6,
+    mascot: 3,
   },
-
-  // Stagger delay between children
-  stagger: 0.1,
+  stagger: 0.12,
 } as const;
 
-// Framer Motion variants for scroll reveal
-export const scrollRevealVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20
-  },
+// Reusable Framer Motion variants
+
+export const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: ANIMATION_CONFIG.duration.slow,
-      ease: ANIMATION_CONFIG.ease.smooth
-    }
-  }
+    transition: { duration: 0.6, ease: ANIMATION_CONFIG.ease.smooth },
+  },
 };
 
-// Container variant for staggering children
-export const staggerContainerVariants = {
+export const stagger = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: ANIMATION_CONFIG.stagger,
-      delayChildren: 0.1,
-    }
-  }
+    transition: { staggerChildren: ANIMATION_CONFIG.stagger },
+  },
 };
 
-// Child items for stagger animations
-export const staggerItemVariants = {
+export const staggerItem = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: ANIMATION_CONFIG.duration.slow,
-      ease: ANIMATION_CONFIG.ease.smooth
-    }
-  }
+    transition: { duration: 0.5, ease: ANIMATION_CONFIG.ease.smooth },
+  },
+};
+
+export const scaleIn = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+// Hero word-by-word reveal
+export const wordReveal = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.3 },
+  },
+};
+
+export const wordItem = {
+  hidden: { opacity: 0, y: 40, rotateX: -15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: { duration: 0.7, ease: ANIMATION_CONFIG.ease.smooth },
+  },
 };
 
 // Mascot floating animation
-export const mascotFloatVariants = {
+export const mascotFloat = {
   animate: {
     y: [-10, 10, -10],
     transition: {
       duration: ANIMATION_CONFIG.duration.mascot,
       repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
+      ease: "easeInOut",
+    },
+  },
 };
 
-// Fade in from bottom (for sections)
-export const fadeInUpVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: ANIMATION_CONFIG.duration.slow,
-      ease: ANIMATION_CONFIG.ease.smooth
-    }
-  }
-};
-
-// Scale up on hover (for cards, buttons)
-export const scaleOnHoverVariants = {
+// Card hover glow
+export const cardHover = {
   initial: { scale: 1 },
   hover: {
     scale: 1.02,
-    transition: {
-      duration: ANIMATION_CONFIG.duration.fast,
-      ease: ANIMATION_CONFIG.ease.snappy
-    }
+    transition: { duration: ANIMATION_CONFIG.duration.fast, ease: ANIMATION_CONFIG.ease.snappy },
   },
   tap: {
     scale: 0.98,
-    transition: {
-      duration: ANIMATION_CONFIG.duration.fast,
-      ease: ANIMATION_CONFIG.ease.snappy
-    }
-  }
+    transition: { duration: ANIMATION_CONFIG.duration.fast },
+  },
+};
+
+// Navbar variants
+export const navbarVariants = {
+  top: {
+    backgroundColor: "rgba(10, 10, 15, 0)",
+    boxShadow: "0 0 0 rgba(0,0,0,0)",
+  },
+  scrolled: {
+    backgroundColor: "rgba(10, 10, 15, 0.8)",
+    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.3)",
+  },
 };
 
 // Mobile menu slide in
 export const mobileMenuVariants = {
   closed: {
     x: "100%",
-    transition: {
-      duration: ANIMATION_CONFIG.duration.normal,
-      ease: ANIMATION_CONFIG.ease.smooth
-    }
+    transition: { duration: ANIMATION_CONFIG.duration.normal, ease: ANIMATION_CONFIG.ease.smooth },
   },
   open: {
     x: 0,
-    transition: {
-      duration: ANIMATION_CONFIG.duration.normal,
-      ease: ANIMATION_CONFIG.ease.smooth
-    }
-  }
-};
-
-// Navbar background on scroll
-export const navbarVariants = {
-  top: {
-    backgroundColor: "rgba(253, 246, 236, 0)",
-    boxShadow: "0 0 0 rgba(0,0,0,0)",
+    transition: { duration: ANIMATION_CONFIG.duration.normal, ease: ANIMATION_CONFIG.ease.smooth },
   },
-  scrolled: {
-    backgroundColor: "rgba(253, 246, 236, 0.9)",
-    boxShadow: "0 4px 24px rgba(27, 42, 74, 0.08)",
-  }
 };

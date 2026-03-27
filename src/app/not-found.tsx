@@ -16,7 +16,7 @@ export default function NotFound() {
             <div className="max-w-2xl w-full text-center">
                 {/* 404 Number */}
                 <div className="mb-8 animate-fade-in">
-                    <h1 className="text-[8rem] md:text-[12rem] font-black font-outfit text-foreground/10 leading-none select-none">
+                    <h1 className="text-[8rem] md:text-[12rem] font-black font-syne text-foreground/10 leading-none select-none">
                         404
                     </h1>
                 </div>
@@ -33,7 +33,7 @@ export default function NotFound() {
 
                 {/* Error Message */}
                 <div>
-                    <h2 className="text-3xl md:text-4xl font-bold font-outfit text-foreground mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold font-syne text-foreground mb-4">
                         Page Not Found
                     </h2>
 

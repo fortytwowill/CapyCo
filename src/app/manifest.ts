@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
         description: "Build. Ship. Grow. A vibe-first coding & marketing agency founded by Brazilians in Canada.",
         start_url: "/",
         display: "standalone",
-        background_color: "#FDF6EC",
-        theme_color: "#D4952B",
+        background_color: "#0a0a0f",
+        theme_color: "#F5A623",
         icons: [
             {
                 src: "/icon",

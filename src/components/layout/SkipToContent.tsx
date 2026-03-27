@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 /**
  * SkipToContent - Accessibility component for keyboard navigation

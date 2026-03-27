@@ -22,7 +22,7 @@ export default function PrivacyPage() {
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                         <Shield className="w-6 h-6 text-primary" />
                     </div>
-                    <h1 className="text-3xl md:text-4xl font-bold font-outfit text-foreground">
+                    <h1 className="text-3xl md:text-4xl font-bold font-syne text-foreground">
                         Privacy Policy
                     </h1>
                 </div>
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
                         </p>
                     </div>
 
-                    <h2 className="text-2xl font-bold font-outfit text-foreground mt-8 mb-4">
+                    <h2 className="text-2xl font-bold font-syne text-foreground mt-8 mb-4">
                         Information We Collect
                     </h2>
                     <p className="text-foreground/80 mb-4">
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
                         </li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold font-outfit text-foreground mt-8 mb-4">
+                    <h2 className="text-2xl font-bold font-syne text-foreground mt-8 mb-4">
                         How We Use Your Information
                     </h2>
                     <p className="text-foreground/80 mb-4">
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
                         <li>Protecting against spam and abuse</li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold font-outfit text-foreground mt-8 mb-4">
+                    <h2 className="text-2xl font-bold font-syne text-foreground mt-8 mb-4">
                         Data Protection
                     </h2>
                     <p className="text-foreground/80 mb-6">
@@ -83,7 +83,7 @@ export default function PrivacyPage() {
                         honeypot fields and rate limiting.
                     </p>
 
-                    <h2 className="text-2xl font-bold font-outfit text-foreground mt-8 mb-4">
+                    <h2 className="text-2xl font-bold font-syne text-foreground mt-8 mb-4">
                         Third-Party Services
                     </h2>
                     <p className="text-foreground/80 mb-6">
@@ -93,7 +93,7 @@ export default function PrivacyPage() {
                         disclose or use it for any other purpose.
                     </p>
 
-                    <h2 className="text-2xl font-bold font-outfit text-foreground mt-8 mb-4">
+                    <h2 className="text-2xl font-bold font-syne text-foreground mt-8 mb-4">
                         Your Rights
                     </h2>
                     <p className="text-foreground/80 mb-6">
@@ -105,7 +105,7 @@ export default function PrivacyPage() {
                         </a>.
                     </p>
 
-                    <h2 className="text-2xl font-bold font-outfit text-foreground mt-8 mb-4">
+                    <h2 className="text-2xl font-bold font-syne text-foreground mt-8 mb-4">
                         Changes to This Policy
                     </h2>
                     <p className="text-foreground/80 mb-6">
@@ -114,7 +114,7 @@ export default function PrivacyPage() {
                         the "Last updated" date.
                     </p>
 
-                    <h2 className="text-2xl font-bold font-outfit text-foreground mt-8 mb-4">
+                    <h2 className="text-2xl font-bold font-syne text-foreground mt-8 mb-4">
                         Contact Us
                     </h2>
                     <p className="text-foreground/80 mb-6">

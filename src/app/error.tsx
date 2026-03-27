@@ -30,7 +30,7 @@ export default function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
                 </div>
 
                 {/* Error Message */}
-                <h1 className="text-3xl font-bold font-outfit text-foreground mb-4">
+                <h1 className="text-3xl font-bold font-syne text-foreground mb-4">
                     Something went wrong!
                 </h1>
 

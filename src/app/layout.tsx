@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
+import { Syne, DM_Sans, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SkipToContent } from "@/components/layout/SkipToContent";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
 });
@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#D4952B",
+  themeColor: "#F5A623",
 };
 
 export const metadata: Metadata = {
@@ -86,17 +86,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://capyco.dev",
   },
-  verification: {
-    // Add verification tokens here when available
-    // google: 'google-site-verification-token',
-  },
   icons: {
     icon: "/favicon-capy.png",
     shortcut: "/favicon-capy.png",
     apple: "/apple-touch-icon-capy.png",
   },
   other: {
-    "msapplication-TileColor": "#D4952B",
+    "msapplication-TileColor": "#F5A623",
     "msapplication-config": "/browserconfig.xml",
   },
 };
@@ -109,7 +105,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased flex flex-col min-h-screen`}
+        className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-sans antialiased flex flex-col min-h-screen`}
       >
         <SkipToContent />
         <Navbar />
