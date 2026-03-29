@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { Layers, TrendingUp, Code2, ArrowRight } from "lucide-react";
+import { Layers, TrendingUp, Code2 } from "lucide-react";
 
 export function Services() {
   const containerVariants: Variants = {
@@ -122,14 +122,6 @@ export function Services() {
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href="#contact"
-                  className="inline-flex items-center text-sm font-semibold text-muted-foreground group-hover:text-primary transition-colors mt-auto"
-                >
-                  View Details
-                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                </a>
               </motion.div>
             );
           })}

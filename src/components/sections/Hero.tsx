@@ -72,10 +72,10 @@ export function Hero() {
             variants={wordItem}
             className="block text-transparent bg-clip-text bg-gradient-to-r from-[#F5A623] to-[#FF6B6B]"
           >
-            Build.
+            Think.
           </motion.span>
           <motion.span variants={wordItem} className="block text-foreground">
-            Ship.
+            Create.
           </motion.span>
           <motion.span
             variants={wordItem}
@@ -92,7 +92,7 @@ export function Hero() {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10"
         >
-          We&apos;re a vibe-first coding & marketing agency that turns wild ideas into digital magic.
+          We&apos;re a vibe coding & marketing agency that turns wild ideas into digital magic.
         </motion.p>
 
         {/* CTAs */}

@@ -17,8 +17,8 @@ export const siteContent = {
 
   // Hero Section
   hero: {
-    headline: "Build. Ship. Grow.",
-    subtext: "We're a vibe-first coding & marketing agency that turns wild ideas into digital magic.",
+    headline: "Think. Create. Grow.",
+    subtext: "We're a vibe coding & marketing agency that turns wild ideas into digital magic.",
     primaryCta: {
       label: "Get Started",
       href: "#contact"
@@ -217,7 +217,7 @@ export const siteContent = {
   // SEO
   seo: {
     title: "Capybara Corporation | Vibe Coding & Marketing Agency",
-    description: "Build. Ship. Grow. A vibe-first coding & marketing agency crafting digital magic. Brazilian creativity meets Canadian quality.",
+    description: "Think. Create. Grow. A vibe coding & marketing agency crafting digital magic. Brazilian creativity meets Canadian quality.",
     keywords: ["web development", "marketing agency", "SaaS", "app development", "digital marketing"],
     ogImage: "/images/og-image.png",
     twitterHandle: "@capyco"

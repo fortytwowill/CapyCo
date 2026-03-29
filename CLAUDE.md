@@ -1,24 +1,27 @@
 # CLAUDE.md
 
+Always read CONTEXT.md and HANDOFF.md before starting any task.
+When you finish a task or session, update HANDOFF.md with what you did, what's in progress, any issues found, files changed, and suggested next steps.
+When a significant architectural or design decision is made, log it in the Key Decisions table in CONTEXT.md.
+
+---
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
-
-CapyCo is a Next.js landing page for "Capybara Corporation" — a vibe coding & marketing agency. The project uses a warm, approachable design with a custom color palette inspired by the capybara mascot.
+CapyCo is a Next.js landing page for "Capybara Corporation" — a vibe coding & marketing agency. The project uses a dark-themed, immersive design with Three.js visuals, GSAP animations, and a golden-amber accent palette.
 
 ## Tech Stack
-
 - **Framework:** Next.js 16.1.6 with App Router
 - **React:** 19.2.3
 - **TypeScript:** 5.x (strict mode enabled)
 - **Styling:** Tailwind CSS v4 with CSS-first configuration
 - **UI Components:** shadcn/ui with "base-nova" style
-- **Animation:** Framer Motion
+- **Animation:** GSAP (Marquee), Framer Motion (Sections/Hero), Three.js (Background Blobs)
 - **Icons:** Lucide React
-- **Forms:** React Hook Form + Zod
+- **Forms:** React Hook Form + Zod + Next.js Server Actions
 
 ## Common Commands
-
 ```bash
 # Development server
 npm run dev
@@ -37,74 +40,50 @@ npx tsc --noEmit
 ```
 
 ## Project Architecture
-
 ### File Structure
-
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Root layout with Google Fonts (Outfit, Inter, JetBrains Mono)
-│   ├── page.tsx            # Home page
-│   ├── globals.css         # Tailwind v4 imports + custom CSS variables
-│   └── api/                # API routes (empty)
+│   ├── layout.tsx          # Root layout with Google Fonts (Syne, DM Sans, JetBrains Mono)
+│   ├── page.tsx            # Home page (Hero, Marquee, Services, WhyCapyCo, etc.)
+│   ├── globals.css         # Tailwind v4 imports + custom Dark Theme CSS variables
+│   └── actions/            # Server Actions for form handling
 ├── components/
-│   ├── ui/                 # shadcn/ui components (button installed)
-│   ├── layout/             # Navbar, Footer (empty - planned)
-│   ├── sections/           # Page sections (empty - planned)
-│   └── shared/             # Shared components (empty - planned)
+│   ├── ui/                 # shadcn/ui components (base-nova)
+│   ├── layout/             # Navbar, Footer
+│   ├── sections/           # Hero, Marquee, Services, WhyCapyCo, Stats, Contact, FooterCTA
+│   ├── three/              # Three.js components (HeroBlob)
+│   └── shared/             # MascotFloat, Container, SectionWrapper
 ├── lib/
-│   └── utils.ts            # cn() helper for tailwind-merge + clsx
-└── hooks/                  # Custom React hooks (empty - planned)
+│   ├── animations.ts       # Centralized Framer Motion variants
+│   ├── gsap-utils.ts       # GSAP helper
+│   └── validations.ts      # Zod schemas for forms
+└── content/
+    └── site-content.ts     # Centralized copy and metadata (Source of Truth)
 ```
 
-### Key Configuration Files
-
-- **`components.json`**: shadcn/ui configuration with style "base-nova", using `@base-ui/react` primitives
-- **`next.config.ts`**: Next.js configuration (minimal)
-- **`tsconfig.json`**: TypeScript with path alias `@/*` → `./src/*`
-- **`eslint.config.mjs`**: ESLint using `eslint-config-next` (core-web-vitals + typescript)
-- **`postcss.config.mjs`**: PostCSS with `@tailwindcss/postcss`
-
 ### Design System
-
 **Color Palette (in `globals.css`):**
-- Background: `#FDF6EC` (Warm Cream)
-- Primary: `#D4952B` (Golden Amber)
-- Secondary: `#4A6FA5` (Slate Blue)
-- Accent: `#E8835D` (Warm Coral)
-- Foreground: `#1B2A4A` (Deep Navy)
-- Muted: `#6B6B6B` (Warm Gray)
+- Background: `#0a0a0f` (Deep Navy/Black)
+- Primary: `#F5A623` (Golden Amber)
+- Secondary: `#00D4AA` (Teal)
+- Accent: `#FF6B6B` (Coral)
+- Foreground: `#F0EFE9` (Off-white)
+- Card: `#111118` (Dark Surface)
 
 **Typography:**
-- Headlines: Outfit (Google Font)
-- Body: Inter (Google Font)
-- Code: JetBrains Mono (Google Font)
+- Headlines: Syne (Google Font)
+- Body: DM Sans (Google Font)
+- Code: Geist Mono (Google Font)
 
-**Component Conventions:**
-- shadcn/ui components use `@base-ui/react` primitives (not Radix)
-- Buttons use `class-variance-authority` for variants
-- Style variants: `default`, `outline`, `secondary`, `ghost`, `destructive`, `link`
-- Size variants: `default`, `xs`, `sm`, `lg`, `icon`, `icon-xs`, `icon-sm`, `icon-lg`
+**Headline Branding:**
+- "Think. Create. Grow."
 
 ## Path Aliases
-
 - `@/*` maps to `./src/*`
-- Used for imports like: `import { Button } from "@/components/ui/button"`
 
 ## Important Notes
-
-- **Tailwind v4**: Uses `@import "tailwindcss"` in CSS, not a JS config file
-- **shadcn/ui**: Uses "base-nova" style with `@base-ui/react` primitives
-- **Dark mode**: Supported via CSS variables in `globals.css` (use `.dark` class)
-- **Strict TypeScript**: All strict checks are enabled
-- **No tests configured**: Project doesn't have test commands set up yet
-
-## Implementation Plan Reference
-
-See `CAPYCO_LANDING_PAGE_PLAN.md` for detailed section specifications, design references, and implementation phases. Key planned sections:
-- Hero with floating mascot animation
-- Services Bento grid
-- Stats with animated counters
-- Testimonials carousel
-- Contact form with honeypot anti-bot protection
-- Sticky floating navbar
+- **Tailwind v4**: Uses `@import "tailwindcss"` in CSS, not a JS config file.
+- **Content First**: Always check `src/content/site-content.ts` when updating text or SEO.
+- **Dark mode**: Project is dark-themed by default.
+- **Animations**: Uses a mix of Framer Motion, GSAP, and Three.js.
