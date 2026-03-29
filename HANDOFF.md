@@ -12,6 +12,7 @@
 - **UI Simplification**: Removed redundant "View Details" links and icons from the Services section cards (SaaS Products, Marketing, Custom Dev).
 - **Content Centralization**: Moved `WhyCapyCo.tsx` and `Stats.tsx` off local hardcoded copy and onto `src/content/site-content.ts`, removing duplicate text and mismatched stat values.
 - **Hero Mascot Rotation**: Restored refresh-based mascot alternation in `Hero.tsx` using a stable client-side rotation over the images in `public/images/mascots`.
+- **Hero Mascot Follow-up**: Adjusted the hero mascot image rendering to key the `next/image` instance by the selected mascot filename so refresh-based rotation is visually applied reliably.
 - **Documentation Overhaul**: 
   - Created `CONTEXT.md` with full project overview, tech stack, architecture, and key decisions.
   - Created `HANDOFF.md` with this standardized log format.
@@ -29,6 +30,7 @@
 ## Files Changed
 - `src/components/sections/Hero.tsx`: Headline and subtext update.
 - `src/components/sections/Hero.tsx`: Restored mascot rotation across refreshes using the mascot image set in `public/images/mascots`.
+- `src/components/sections/Hero.tsx`: Added keyed mascot image rendering so refresh-based mascot changes are forced through `next/image`.
 - `src/components/sections/Services.tsx`: UI cleanup (removed links).
 - `src/components/sections/WhyCapyCo.tsx`: Switched section heading, subtitle, and feature cards to centralized content.
 - `src/components/sections/Stats.tsx`: Switched stat values and labels to centralized content.

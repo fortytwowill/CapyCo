@@ -38,7 +38,7 @@ function getNextMascotImage(): string {
 }
 
 export function Hero() {
-  const [mascotImage] = useState(() => getNextMascotImage());
+  const [mascotImage] = useState<string>(() => getNextMascotImage());
 
   return (
     <section
@@ -160,6 +160,7 @@ export function Hero() {
             className="relative aspect-square md:aspect-[4/3] w-full"
           >
             <Image
+              key={mascotImage}
               src={`/images/mascots/${mascotImage}`}
               alt="CapyCo mascot"
               fill
