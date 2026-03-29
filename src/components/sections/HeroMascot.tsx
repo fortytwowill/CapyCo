@@ -14,6 +14,7 @@ const mascotImages = [
   "mascot_7.png",
   "mascot_8.png",
   "mascot_9.png",
+  "mascot_10.png",
 ] as const;
 
 function getNextMascotImage(): string {
