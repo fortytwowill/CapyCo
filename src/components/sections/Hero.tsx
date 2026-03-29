@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,22 +13,32 @@ const HeroBlob = dynamic(() => import("@/components/three/HeroBlob"), {
   loading: () => <div className="absolute inset-0" />,
 });
 
-function getMascotIndex(): number {
-  if (typeof window === "undefined") return 1;
-  const lastIdx = parseInt(localStorage.getItem("mascotIdx") || "0", 10);
-  const nextIdx = (lastIdx % 10) + 1;
-  localStorage.setItem("mascotIdx", nextIdx.toString());
-  return nextIdx;
-}
+const mascotImages = [
+  "mascot_1.png",
+  "mascot_2.png",
+  "mascot_3.png",
+  "mascot_4.png",
+  "mascot_5.png",
+  "mascot_6.png",
+  "mascot_7.png",
+  "mascot_8.png",
+  "mascot_9.png",
+  "mascot_10.png",
+] as const;
 
-// Read mascot index once at module load (client only)
-let _mascotIdx = 1;
-if (typeof window !== "undefined") {
-  _mascotIdx = getMascotIndex();
+function getNextMascotImage(): string {
+  if (typeof window === "undefined") return mascotImages[0];
+  const lastIndex = parseInt(localStorage.getItem("mascotIdx") || "-1", 10);
+  const nextIndex = Number.isNaN(lastIndex)
+    ? 0
+    : (lastIndex + 1) % mascotImages.length;
+
+  localStorage.setItem("mascotIdx", nextIndex.toString());
+  return mascotImages[nextIndex];
 }
 
 export function Hero() {
-  const mascotIdx = _mascotIdx;
+  const [mascotImage] = useState(() => getNextMascotImage());
 
   return (
     <section
@@ -149,8 +160,8 @@ export function Hero() {
             className="relative aspect-square md:aspect-[4/3] w-full"
           >
             <Image
-              src={`/images/mascots/mascot_${mascotIdx}.png`}
-              alt={`CapyCo Mascot ${mascotIdx}`}
+              src={`/images/mascots/${mascotImage}`}
+              alt="CapyCo mascot"
               fill
               priority
               className="object-contain drop-shadow-[0_0_60px_rgba(245,166,35,0.3)]"

@@ -1,41 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Code2, TrendingUp, Heart } from "lucide-react";
+import { Globe, Rocket, TrendingUp, Zap, type LucideIcon } from "lucide-react";
+import { siteContent } from "@/content/site-content";
 import { stagger, staggerItem } from "@/lib/animations";
 
-const features = [
-  {
-    num: "01",
-    title: "Vibe Coding",
-    description:
-      "We believe code should flow safely and smoothly. Our AI-assisted development processes match your energy, ensuring the product we build feels right from the inside out.",
-    icon: Sparkles,
-  },
-  {
-    num: "02",
-    title: "Ship Fast, Stay Chill",
-    description:
-      "Agile workflows don't have to mean burnout. We deploy with precision and speed, maintaining a steady, stress-free rhythm that guarantees quality without the chaos.",
-    icon: Code2,
-  },
-  {
-    num: "03",
-    title: "Growth-Driven Design",
-    description:
-      "Every pixel we push is backed by strategy. From SEO to conversion rate optimization, our marketing DNA is baked right into the codebase.",
-    icon: TrendingUp,
-  },
-  {
-    num: "04",
-    title: "Brazilian Warmth, Canadian Quality",
-    description:
-      "Founded by Brazilians in Canada, we mix tropical creativity and warmth with north-american reliability and quality standards. The best of both worlds.",
-    icon: Heart,
-  },
-];
+const featureIcons: Record<string, LucideIcon> = {
+  Zap,
+  Rocket,
+  TrendingUp,
+  Globe,
+};
 
 export function WhyCapyCo() {
+  const { title, subtitle, features } = siteContent.whyUs;
+  const highlightText = "CapyCo?";
+  const titlePrefix = title.endsWith(highlightText)
+    ? title.slice(0, -highlightText.length)
+    : title;
+
   return (
     <section id="about" className="py-24 bg-background overflow-hidden relative">
       {/* Capybara watermark */}
@@ -51,9 +34,9 @@ export function WhyCapyCo() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold font-syne text-foreground mb-6"
           >
-            Why Choose{" "}
+            {titlePrefix}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">
-              CapyCo?
+              {highlightText}
             </span>
           </motion.h2>
           <motion.p
@@ -63,9 +46,7 @@ export function WhyCapyCo() {
             transition={{ delay: 0.1 }}
             className="text-lg text-muted-foreground"
           >
-            We&apos;re not your typical corporate agency. We&apos;re a crew of
-            passionate builders who actually enjoy what we do, and it shows in
-            our work.
+            {subtitle}
           </motion.p>
         </div>
 
@@ -76,17 +57,17 @@ export function WhyCapyCo() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {features.map((feature) => {
-            const Icon = feature.icon;
+          {features.map((feature, index) => {
+            const Icon = featureIcons[feature.icon];
             return (
               <motion.div
-                key={feature.num}
+                key={feature.title}
                 variants={staggerItem}
                 className="relative p-8 rounded-2xl bg-card border border-border group hover:border-primary/20 transition-colors duration-300"
               >
                 {/* Large faded number */}
                 <span className="absolute top-4 right-6 text-7xl md:text-8xl font-black font-syne text-primary/[0.06] group-hover:text-primary/[0.1] transition-colors duration-500 select-none leading-none">
-                  {feature.num}
+                  {String(index + 1).padStart(2, "0")}
                 </span>
 
                 <div className="relative z-10">

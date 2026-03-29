@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useSyncExternalStore } from "react";
+import { siteContent } from "@/content/site-content";
 import { gsap, refreshOnFontsReady } from "@/lib/gsap-utils";
 
 function subscribeToMotion(cb: () => void) {
@@ -77,12 +78,7 @@ export function Stats() {
     refreshOnFontsReady();
   }, []);
 
-  const stats = [
-    { value: 50, suffix: "+", label: "Projects Shipped" },
-    { value: 30, suffix: "+", label: "Happy Clients" },
-    { value: 99.9, suffix: "%", label: "Uptime" },
-    { value: 3, suffix: "", label: "Countries" },
-  ];
+  const stats = siteContent.stats.items;
 
   return (
     <section className="py-20 bg-card relative overflow-hidden">
