@@ -1,35 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const mascotImages = [
-  "mascot_1.png",
-  "mascot_2.png",
-  "mascot_3.png",
-  "mascot_4.png",
-  "mascot_5.png",
-  "mascot_6.png",
-  "mascot_7.png",
-  "mascot_8.png",
-  "mascot_9.png",
-  "mascot_10.png",
-] as const;
-
-function getNextMascotImage(): string {
-  const lastIndex = parseInt(localStorage.getItem("mascotIdx") || "-1", 10);
-  const nextIndex = Number.isNaN(lastIndex)
-    ? 0
-    : (lastIndex + 1) % mascotImages.length;
-
-  localStorage.setItem("mascotIdx", nextIndex.toString());
-  return mascotImages[nextIndex];
-}
-
 export function HeroMascot() {
-  const [mascotImage] = useState<string>(() => getNextMascotImage());
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -41,11 +15,10 @@ export function HeroMascot() {
       <motion.div
         animate={{ y: [0, -15, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="relative aspect-square md:aspect-[4/3] w-full"
+        className="relative aspect-[3/2] md:aspect-[4/3] w-full"
       >
         <Image
-          key={mascotImage}
-          src={`/images/mascots/${mascotImage}`}
+          src="/images/new-mascot.png"
           alt="CapyCo mascot"
           fill
           priority

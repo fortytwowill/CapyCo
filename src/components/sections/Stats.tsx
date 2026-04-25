@@ -64,7 +64,7 @@ function StatItem({ endValue, suffix, label }: StatItemProps) {
         ref={numberRef}
         className="text-5xl md:text-6xl lg:text-7xl font-black font-syne text-primary tracking-tighter tabular-nums mb-2"
       >
-        0{suffix}
+        {suffix}
       </span>
       <p className="text-sm md:text-base font-medium text-muted-foreground uppercase tracking-wide">
         {label}

@@ -63,13 +63,13 @@ export function Navbar() {
         isScrolled
           ? "bg-black/40 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
           : "bg-transparent"
-      }`}
+      } ${isScrolled ? "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-primary/30 after:to-transparent" : ""}`}
     >
       <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 z-50">
           <Image
-            src="/images/capyco-icon.png"
+            src="/images/capyco-logo-icon.png"
             alt="CapyCo Capybara"
             width={32}
             height={32}

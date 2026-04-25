@@ -87,9 +87,9 @@ export const metadata: Metadata = {
     canonical: "https://capyco.dev",
   },
   icons: {
-    icon: "/favicon-capy.png",
-    shortcut: "/favicon-capy.png",
-    apple: "/apple-touch-icon-capy.png",
+    icon: "/images/favicon-32x32.png",
+    shortcut: "/images/favicon-32x32.png",
+    apple: "/images/apple-touch-icon.png",
   },
   other: {
     "msapplication-TileColor": "#F5A623",
