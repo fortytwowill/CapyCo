@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { Layers, TrendingUp, Code2 } from "lucide-react";
+import { Layers, TrendingUp, Code2, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function Services() {
   const containerVariants: Variants = {
@@ -28,6 +29,7 @@ export function Services() {
         "Ready-to-use applications to turbocharge your workflow. Subscribe and scale instantly.",
       icon: Layers,
       features: ["Analytics Suite", "VibeBuilder CRM", "Social Booster"],
+      href: "#products",
     },
     {
       title: "Marketing Packages",
@@ -35,6 +37,7 @@ export function Services() {
         "Growth-driven campaigns designed to make noise. From SEO to viral social content.",
       icon: TrendingUp,
       features: ["Performance Ads", "SEO Strategy", "Content Creation"],
+      href: "#services",
     },
     {
       title: "Custom Development",
@@ -42,6 +45,7 @@ export function Services() {
         "Bespoke web and mobile applications coded with precision and a lot of personality.",
       icon: Code2,
       features: ["Next.js & React", "Mobile Apps", "API Integration"],
+      href: "#contact",
     },
   ];
 
@@ -111,7 +115,7 @@ export function Services() {
                   {service.description}
                 </p>
 
-                <ul className="mb-8 space-y-2">
+                <ul className="mb-6 space-y-2">
                   {service.features.map((feature, i) => (
                     <li
                       key={i}
@@ -122,6 +126,14 @@ export function Services() {
                     </li>
                   ))}
                 </ul>
+
+                <Link
+                  href={service.href}
+                  className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80 transition-colors group/link"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                </Link>
               </motion.div>
             );
           })}

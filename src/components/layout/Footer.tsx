@@ -10,7 +10,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Image
-                src="/images/capyco-icon.png"
+                src="/images/capyco-logo-icon.png"
                 alt="CapyCo Capybara"
                 width={32}
                 height={32}
@@ -21,7 +21,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              A vibe-first coding & marketing agency crafting digital experiences that turn wild ideas into reality.
+              We&apos;re a vibe coding & marketing agency that turns wild ideas into digital magic.
             </p>
             <div className="flex gap-4 text-muted-foreground">
               <Link href="https://twitter.com" target="_blank" className="hover:text-primary transition-colors">
