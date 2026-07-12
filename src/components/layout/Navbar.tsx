@@ -20,8 +20,16 @@ const navLinks = [
 ];
 
 const productItems = [
-  { name: "iCTRL", href: "https://ictrl.app", description: "Warehouse management" },
-  { name: "More soon...", href: null, description: "Stay tuned for updates" },
+  {
+    name: "Grapplr",
+    href: "https://grapplr-seven.vercel.app",
+    description: "Find a BJJ training partner in 60 seconds",
+  },
+  {
+    name: "iCTRL",
+    href: "https://ictrl.app",
+    description: "Warehouse management",
+  },
 ];
 
 export function Navbar() {

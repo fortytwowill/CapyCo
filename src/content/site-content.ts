@@ -17,15 +17,26 @@ export const siteContent = {
 
   // Hero Section
   hero: {
-    headline: "Think. Create. Grow.",
-    subtext: "We're a vibe coding & marketing agency that turns wild ideas into digital magic.",
+    headline: "We build, launch, and grow your product.",
+    subtext: "CapyCo is a product studio for founders who'd rather ship than spec. We design, build, and market software people actually use — see Grapplr below.",
     primaryCta: {
-      label: "Get Started",
+      label: "Start Your Project",
       href: "#contact"
     },
     secondaryCta: {
-      label: "Learn More",
+      label: "Explore Services",
       href: "#services"
+    },
+    // New: outcome-led social proof strip in the hero. "We built Grapplr" is
+    // the agency’s single best asset; surface it where buyers can see it.
+    socialProof: {
+      label: "We built",
+      product: {
+        name: "Grapplr",
+        tagline: "Find a BJJ training partner in your city in under 60 seconds.",
+        href: "https://grapplr-seven.vercel.app",
+        ctaLabel: "Try it live"
+      }
     },
     trustPills: [
       { icon: "Check", label: "SaaS Products" },
@@ -64,28 +75,60 @@ export const siteContent = {
     ]
   },
 
+  // What You'll Get Section (neoomni-style concrete outcomes list)
+  whatYouGet: {
+    title: "What you’ll get",
+    subtitle: "Concrete deliverables. No vague promises.",
+    items: [
+      {
+        title: "A shipped MVP in 8–12 weeks",
+        description: "Design, build, and deploy a working product you can put in front of users — not a slide deck."
+      },
+      {
+        title: "A codebase your team can own",
+        description: "Modern, documented, type-safe. We hand it over with the keys — no vendor lock-in, no mystery services."
+      },
+      {
+        title: "Marketing that ships with the product",
+        description: "Landing page, SEO, analytics, and a launch plan — baked in from day one, not bolted on at the end."
+      },
+      {
+        title: "Weekly demos, not monthly status reports",
+        description: "Loom walkthroughs every Friday. You always know what shipped, what’s next, and what’s blocking."
+      },
+      {
+        title: "A product, not a project",
+        description: "We think like founders: retention, pricing, onboarding, growth loops. We build things people pay for."
+      },
+      {
+        title: "One team, design through launch",
+        description: "No handoffs between a designer, a dev shop, and a marketing agency. One team, one Slack channel, one bill."
+      }
+    ]
+  },
+
   // Why CapyCo Section
   whyUs: {
     title: "Why CapyCo?",
     subtitle: "The perfect blend of creativity and technical excellence",
     features: [
       {
-        icon: "Zap",
-        title: "Vibe Coding",
-        description: "AI-assisted development that matches your energy. We use cutting-edge tools to ship faster without sacrificing quality.",
-        highlight: "2x faster delivery"
-      },
-      {
         icon: "Rocket",
         title: "Ship Fast, Stay Chill",
-        description: "Agile workflows without the stress. No crunch, no burnout—just consistent progress and transparent communication.",
+        description: "Agile workflows without the stress. No crunch, no burnout — just consistent progress and transparent communication.",
         highlight: "Zero missed deadlines"
       },
       {
         icon: "TrendingUp",
         title: "Growth-Driven",
-        description: "Marketing strategy baked into every pixel. We don't just build products; we build products that grow.",
+        description: "Marketing strategy baked into every pixel. We don’t just build products; we build products that grow.",
         highlight: "Data-informed design"
+      },
+      {
+        icon: "Zap",
+        title: "AI-Assisted Development",
+        description: "We use cutting-edge AI tools to ship faster without sacrificing quality. Your speed, our craft.",
+        highlight: "2x faster delivery"
       },
       {
         icon: "Globe",
@@ -167,9 +210,8 @@ export const siteContent = {
       {
         title: "Products",
         links: [
-          { label: "SaaS Tools", href: "#products" },
-          { label: "Templates", href: "#" },
-          { label: "Open Source", href: "#" }
+          { label: "Grapplr", href: "https://grapplr-seven.vercel.app" },
+          { label: "iCTRL", href: "https://ictrl.app" }
         ]
       },
       {
@@ -196,9 +238,12 @@ export const siteContent = {
     ]
   },
 
-  // Trusted By (placeholder - hidden until content ready)
+  // Trusted By — REMOVED. The previous client-logo wall used placeholder
+  // names (BrewTech, HexaData, ZapScale, SecureNet, GlobalReach, StarLaunch).
+  // The Marquee component is no longer rendered; when real client logos are
+  // available, reintroduce this content and a Marquee consumer.
   trustedBy: {
-    show: false, // Set to true when client logos are ready
+    show: false,
     title: "Trusted by innovative teams",
     logos: [
       // Add logo paths here when available
@@ -216,9 +261,17 @@ export const siteContent = {
 
   // SEO
   seo: {
-    title: "Capybara Corporation | Vibe Coding & Marketing Agency",
-    description: "Think. Create. Grow. A vibe coding & marketing agency crafting digital magic. Brazilian creativity meets Canadian quality.",
-    keywords: ["web development", "marketing agency", "SaaS", "app development", "digital marketing"],
+    title: "CapyCo | We build, launch, and grow your product",
+    description: "CapyCo is a product studio for founders. We design, build, and market software people actually use — see Grapplr, our BJJ partner-finder app.",
+    keywords: [
+      "MVP development agency",
+      "product studio",
+      "SaaS development",
+      "startup development agency",
+      "app development",
+      "digital marketing",
+      "BJJ training partner app"
+    ],
     ogImage: "/images/og-image.png",
     twitterHandle: "@capyco"
   }
