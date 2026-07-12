@@ -51,16 +51,10 @@ export function Hero() {
       </div>
 
       <div className="container px-4 md:px-6 z-10 mx-auto max-w-6xl text-center flex flex-col items-center relative">
-        {/* Availability banner */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-sm text-primary mb-8 backdrop-blur-sm"
-        >
-          <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse-gold" />
-          Now taking new clients for Q3 2026
-        </motion.div>
+        {/* (availability banner removed — was a Q3 2026 scarcity line. See
+            HANDOFF.md for the rationale: when the line is stale it does more
+            harm than good. Add a new availability signal back into
+            site-content.hero when Q* changes.) */}
 
         {/* Headline — outcome-led, not methodology-led.
             Renders the H1 word-by-word using the existing wordReveal animation
@@ -125,39 +119,47 @@ export function Hero() {
           </Link>
         </motion.div>
 
-        {/* Social proof strip — "We built Grapplr"
-            This is the single most credible thing the agency can say. Render
-            it inline so it lands in the same eye-line as the H1 above. */}
-        {socialProof && (
+        {/* Social proof strip — "We've shipped"
+            Renders one card per product in site-content.hero.socialProof.products.
+            Two side-by-side on md+, stacked on mobile. Each card links to the
+            live product; the first one is the primary focus. */}
+        {socialProof?.products && socialProof.products.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.15, duration: 0.5 }}
-            className="mb-12 w-full max-w-3xl"
-            aria-label={`We built ${socialProof.product.name}`}
+            className="mb-12 w-full max-w-5xl"
+            aria-label={socialProof.label}
           >
-            <div className="group relative mx-auto flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-5 sm:p-6 text-left hover:border-primary/40 transition-colors">
-              <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary font-syne font-black text-lg">
-                {socialProof.product.name.charAt(0)}
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
-                  {socialProof.label}
-                </p>
-                <p className="text-base sm:text-lg font-semibold text-foreground leading-snug">
-                  <span className="text-primary">{socialProof.product.name}</span>
-                  <span className="text-muted-foreground"> — {socialProof.product.tagline}</span>
-                </p>
-              </div>
-              <a
-                href={socialProof.product.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-primary/40 text-primary font-medium text-sm hover:bg-primary/10 hover:border-primary transition-all flex-shrink-0"
-              >
-                {socialProof.product.ctaLabel}
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
+            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 text-center">
+              {socialProof.label}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {socialProof.products.map((product) => (
+                <div
+                  key={product.name}
+                  className="group relative flex flex-col sm:flex-row items-center gap-4 sm:gap-5 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-5 sm:p-6 text-left hover:border-primary/40 transition-colors"
+                >
+                  <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary font-syne font-black text-lg">
+                    {product.name.charAt(0)}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-base sm:text-lg font-semibold text-foreground leading-snug">
+                      <span className="text-primary">{product.name}</span>
+                      <span className="text-muted-foreground"> — {product.tagline}</span>
+                    </p>
+                  </div>
+                  <a
+                    href={product.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/40 text-primary font-medium text-sm hover:bg-primary/10 hover:border-primary transition-all flex-shrink-0"
+                  >
+                    {product.ctaLabel}
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
+                </div>
+              ))}
             </div>
           </motion.div>
         )}

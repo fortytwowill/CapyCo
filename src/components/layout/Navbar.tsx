@@ -22,7 +22,7 @@ const navLinks = [
 const productItems = [
   {
     name: "Grapplr",
-    href: "https://grapplr-seven.vercel.app",
+    href: "https://grapplr.co",
     description: "Find a BJJ training partner in 60 seconds",
   },
   {
