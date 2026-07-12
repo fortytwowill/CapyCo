@@ -33,6 +33,10 @@ The project follows a component-based architecture within the Next.js App Router
 | 2026-07-12 | Grapplr as Hero Social Proof | Add a "We built Grapplr" social-proof strip in the hero, linking to grapplr-seven.vercel.app. The agency's single most credible asset — a real, working product — now sits in the eye-line of the H1. |
 | 2026-07-12 | Remove Placeholder Client Logos | Delete `Marquee.tsx` (rendered 6 fake brand names). Trust is destroyed by obvious placeholder text; reintroduce only with real client logos. |
 | 2026-07-12 | New `WhatYouGet` Section | Add a scannable "life-after-hiring-us" bullet list (6 concrete deliverables) between Services and WhyCapyCo. Pattern borrowed from neoomni.com; the site previously had no equivalent. |
+| 2026-07-12 | Multi-Product Social Proof | Extended `hero.socialProof` from single `product` to `products` array. Renders both shipped products (Grapplr + iCTRL) side-by-side on md+, stacked on mobile. Single-product social proof undersold the agency's portfolio. |
+| 2026-07-12 | Production Domain Swap | Replaced all `grapplr-seven.vercel.app` (Vercel preview URL) with `grapplr.co` (production domain) in 4 places. Vercel preview URLs are temporary deploy targets, never the canonical link. |
+| 2026-07-12 | Remove Q3 2026 Availability Banner | The "Now taking new clients for Q3 2026" line becomes a lie on Oct 1 2026. Better to remove than to maintain a stale scarcity signal. Motion config preserved in comments for when the next signal needs to come back. |
+| 2026-07-12 | iCTRL Positioned as WMS | iCTRL tagline drafted: "Real-time inventory across every warehouse, every location, every shift." (Real WMS territory — competes with Manhattan Active, Blue Yonder, SAP EWM, NetSuite WMS, not spreadsheets.) Will revise once `ictrl.app` has real product copy. |
 
 ## Conventions
 - **Naming**: Use PascalCase for components (e.g., `Hero.tsx`) and camelCase for utilities/hooks.
