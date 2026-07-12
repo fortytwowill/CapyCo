@@ -2,6 +2,21 @@
 // Edit this file to update copy without touching component code
 
 export const siteContent = {
+  // Brand block — agency-level identity strings used by metadata, manifest,
+  // robots.txt, and any surface that needs a canonical "who we are" line.
+  // Outcome-led; no "vibe coding" / "wild ideas" / "digital magic" jargon
+  // (those are founder-Instagram-speak, not buyer-Google-search-speak).
+  brand: {
+    shortName: "CapyCo",
+    fullName: "CapyCo — Capybara Corporation",
+    // Outcome-led one-liner. Matches the H1 tone ("We build, launch, and grow
+    // your product."). Used as the PWA name, OG/twitter title suffix, and
+    // anywhere else the agency name appears standalone.
+    pwaName: "CapyCo — Product Studio",
+    description:
+      "We build, launch, and grow software products. A product studio founded by Brazilians in Calgary, Canada.",
+  },
+
   // Navigation
   nav: {
     logo: "CapyCo",
@@ -171,8 +186,9 @@ export const siteContent = {
     title: "Get in Touch",
     subtitle: "Have a project in mind? We'd love to hear about it.",
     info: {
-      email: "hello@capyco.co",
-      location: "Canada 🇨🇦",
+      // Canonical HQ form. Used in the Contact section.
+      email: "contact@capyco.ca",
+      location: "Calgary, Canada 🇨🇦",
       availability: "Usually responds within 24 hours"
     },
     form: {
@@ -205,7 +221,15 @@ export const siteContent = {
 
   // Footer
   footer: {
-    tagline: "Made with ☕ in Canada",
+    // Outcome-led description. Used in the footer masthead. Matches the H1
+    // tone ("We build, launch, and grow your product."). No "vibe coding" /
+    // "wild ideas" / "digital magic" framing — that was playful but unfocused.
+    description:
+      "We build, launch, and grow software products. A product studio founded by Brazilians in Calgary, Canada.",
+    // Tagline shown in the bottom bar. No Brazil/Canada flags (per
+    // 2026-07-12 user decision — flags implied a PT/EN toggle that
+    // doesn't exist; the flags were removed rather than building a toggle).
+    tagline: "Made with a lot of Brazilian ☕ in Calgary, Canada.",
     copyright: `© ${new Date().getFullYear()} Capybara Corporation. All rights reserved.`,
     columns: [
       {
@@ -213,7 +237,8 @@ export const siteContent = {
         links: [
           { label: "About", href: "#about" },
           { label: "Careers", href: "#" },
-          { label: "Blog", href: "#" }
+          { label: "Blog", href: "#" },
+          { label: "Privacy Policy", href: "/privacy" },
         ]
       },
       {
@@ -271,14 +296,24 @@ export const siteContent = {
   // SEO
   seo: {
     title: "CapyCo | We build, launch, and grow your product",
-    description: "CapyCo is a product studio for founders. We design, build, and market software people actually use — see Grapplr, our BJJ partner-finder app.",
+    // Outcome-led meta description. Matches the H1 tone. Mentions Calgary
+    // (the HQ city) and the Brazilian-founded-in-Canada angle without
+    // reverting to "vibe coding" / "wild ideas into digital magic" framing.
+    description:
+      "CapyCo is a product studio in Calgary. We design, build, and market software people actually use — see Grapplr, our BJJ partner-finder app.",
+    // Buyer-Google-search-speak. Removed: "vibe coding", "vibe-first coding"
+    // (jargon nobody searches). Added: "Calgary" (HQ city, helps local SEO).
     keywords: [
-      "MVP development agency",
       "product studio",
+      "MVP development agency",
       "SaaS development",
       "startup development agency",
       "app development",
+      "Calgary",
+      "web development",
+      "marketing agency",
       "digital marketing",
+      "custom development",
       "BJJ training partner app"
     ],
     ogImage: "/images/og-image.png",
