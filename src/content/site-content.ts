@@ -27,16 +27,25 @@ export const siteContent = {
       label: "Explore Services",
       href: "#services"
     },
-    // New: outcome-led social proof strip in the hero. "We built Grapplr" is
-    // the agency’s single best asset; surface it where buyers can see it.
+    // New: outcome-led social proof strip in the hero. "We've shipped" is
+    // the agency's single best asset; surface real products where buyers
+    // can see them. Add/remove entries as the product portfolio changes.
     socialProof: {
-      label: "We built",
-      product: {
-        name: "Grapplr",
-        tagline: "Find a BJJ training partner in your city in under 60 seconds.",
-        href: "https://grapplr-seven.vercel.app",
-        ctaLabel: "Try it live"
-      }
+      label: "We've shipped",
+      products: [
+        {
+          name: "Grapplr",
+          tagline: "Find a BJJ training partner in your city in under 60 seconds.",
+          href: "https://grapplr.co",
+          ctaLabel: "Try it live"
+        },
+        {
+          name: "iCTRL",
+          tagline: "Real-time inventory across every warehouse, every location, every shift.",
+          href: "https://ictrl.app",
+          ctaLabel: "See it in action"
+        }
+      ]
     },
     trustPills: [
       { icon: "Check", label: "SaaS Products" },
@@ -210,7 +219,7 @@ export const siteContent = {
       {
         title: "Products",
         links: [
-          { label: "Grapplr", href: "https://grapplr-seven.vercel.app" },
+          { label: "Grapplr", href: "https://grapplr.co" },
           { label: "iCTRL", href: "https://ictrl.app" }
         ]
       },

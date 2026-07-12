@@ -42,7 +42,7 @@ export function Footer() {
           <div>
             <h4 className="font-syne font-semibold text-foreground mb-4">Products</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="https://grapplr-seven.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Grapplr</a></li>
+              <li><a href="https://grapplr.co" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Grapplr</a></li>
               <li><a href="https://ictrl.app" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">iCTRL</a></li>
             </ul>
           </div>
