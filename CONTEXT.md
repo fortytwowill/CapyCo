@@ -37,6 +37,9 @@ The project follows a component-based architecture within the Next.js App Router
 | 2026-07-12 | Production Domain Swap | Replaced all `grapplr-seven.vercel.app` (Vercel preview URL) with `grapplr.co` (production domain) in 4 places. Vercel preview URLs are temporary deploy targets, never the canonical link. |
 | 2026-07-12 | Remove Q3 2026 Availability Banner | The "Now taking new clients for Q3 2026" line becomes a lie on Oct 1 2026. Better to remove than to maintain a stale scarcity signal. Motion config preserved in comments for when the next signal needs to come back. |
 | 2026-07-12 | iCTRL Positioned as WMS | iCTRL tagline drafted: "Real-time inventory across every warehouse, every location, every shift." (Real WMS territory — competes with Manhattan Active, Blue Yonder, SAP EWM, NetSuite WMS, not spreadsheets.) Will revise once `ictrl.app` has real product copy. |
+| 2026-07-12 | Content Centralization: `brand` Block | Added new `siteContent.brand` block (shortName, fullName, pwaName, description) to centralize the 4 hardcoded "vibe coding" references that PR #4 missed in Footer/layout/manifest. Pattern: any time a string is hardcoded in JSX, it belongs in `site-content.ts` first. |
+| 2026-07-12 | Calgary is Canonical HQ | All city references canonicalized to "Calgary, Canada". Contact section, footer tagline, brand description, SEO keywords all aligned. Local SEO depends on consistency across copy + structured data. |
+| 2026-07-12 | Footer Flags Removed (No Language Toggle) | Brazil/Canada flags removed from the footer because they implied a PT/EN language toggle that doesn't exist. User decision: drop the flags, don't build a real toggle (yet). Flags retained only where they label the city (🇨🇦) or communicate founder origin (WhyCapyCo feature card). |
 
 ## Conventions
 - **Naming**: Use PascalCase for components (e.g., `Hero.tsx`) and camelCase for utilities/hooks.
