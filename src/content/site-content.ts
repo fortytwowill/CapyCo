@@ -33,7 +33,7 @@ export const siteContent = {
   // Hero Section
   hero: {
     headline: "We build, launch, and grow your product.",
-    subtext: "CapyCo is a product studio for founders who'd rather ship than spec. We design, build, and market software people actually use — see Grapplr below.",
+    subtext: "A product studio for ambitious founders. We turn your idea into a working product in 8–12 weeks — design, engineering, and growth under one roof in Calgary.",
     primaryCta: {
       label: "Start Your Project",
       href: "#contact"
