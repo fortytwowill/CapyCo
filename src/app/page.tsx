@@ -1,6 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
-import { Marquee } from "@/components/sections/Marquee";
 import { Services } from "@/components/sections/Services";
+import { WhatYouGet } from "@/components/sections/WhatYouGet";
 import { WhyCapyCo } from "@/components/sections/WhyCapyCo";
 import { Stats } from "@/components/sections/Stats";
 import { Testimonial } from "@/components/sections/Testimonial";
@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Marquee />
       <Services />
+      <WhatYouGet />
       <WhyCapyCo />
       <Stats />
       <Testimonial />
