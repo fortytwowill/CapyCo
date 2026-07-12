@@ -1,5 +1,5 @@
 # robots.txt for CapyCo
-# Capybara Corporation - Vibe Coding & Marketing Agency
+# Capybara Corporation — Product Studio in Calgary, Canada
 # https://capyco.dev
 
 # Allow all crawlers

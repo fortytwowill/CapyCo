@@ -7,6 +7,7 @@ import { contactFormSchema, type ContactFormValues } from "@/lib/validations";
 import { submitContactForm } from "@/app/actions/contact";
 import { MapPin, Mail, Phone, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { siteContent } from "@/content/site-content";
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -99,7 +100,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Email</h4>
-                    <p className="text-muted-foreground">contact@capyco.ca</p>
+                    <p className="text-muted-foreground">{siteContent.contact.info.email}</p>
                   </div>
                 </div>
 
@@ -109,7 +110,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">HQ</h4>
-                    <p className="text-muted-foreground">Calgary, AB, Canada</p>
+                    <p className="text-muted-foreground">{siteContent.contact.info.location}</p>
                   </div>
                 </div>
 

@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
+import { siteContent } from "@/content/site-content";
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: "CapyCo - Vibe Coding & Marketing Agency",
-        short_name: "CapyCo",
-        description: "Build. Ship. Grow. A vibe-first coding & marketing agency founded by Brazilians in Canada.",
+        name: siteContent.brand.pwaName,
+        short_name: siteContent.brand.shortName,
+        description: siteContent.brand.description,
         start_url: "/",
         display: "standalone",
         background_color: "#0a0a0f",
