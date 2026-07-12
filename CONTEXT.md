@@ -29,6 +29,10 @@ The project follows a component-based architecture within the Next.js App Router
 | 2026-03-15 | Three.js Integration | Add interactive Hero background for higher engagement and a more premium agency feel. |
 | 2026-03-29 | "Think. Create. Grow." Branding | Refine headline from "Build. Ship. Grow." to better reflect the agency's focus on deep thought and creative execution. |
 | 2026-03-29 | Content Centralization | Enforce use of `site-content.ts` to allow easy content updates without touching JSX. |
+| 2026-07-12 | Outcome-Led Hero | Replace "Think. Create. Grow." / "vibe coding & marketing agency" with "We build, launch, and grow your product." Buyers search for outcomes, not methodology. The "vibe coding" jargon was founder-Instagram-speak, not buyer-Google-search-speak. |
+| 2026-07-12 | Grapplr as Hero Social Proof | Add a "We built Grapplr" social-proof strip in the hero, linking to grapplr-seven.vercel.app. The agency's single most credible asset — a real, working product — now sits in the eye-line of the H1. |
+| 2026-07-12 | Remove Placeholder Client Logos | Delete `Marquee.tsx` (rendered 6 fake brand names). Trust is destroyed by obvious placeholder text; reintroduce only with real client logos. |
+| 2026-07-12 | New `WhatYouGet` Section | Add a scannable "life-after-hiring-us" bullet list (6 concrete deliverables) between Services and WhyCapyCo. Pattern borrowed from neoomni.com; the site previously had no equivalent. |
 
 ## Conventions
 - **Naming**: Use PascalCase for components (e.g., `Hero.tsx`) and camelCase for utilities/hooks.
