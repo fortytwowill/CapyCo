@@ -12,7 +12,7 @@ export function Services() {
         "Ready-to-use applications to turbocharge your workflow. Subscribe and scale instantly.",
       icon: Layers,
       features: ["Analytics Suite", "VibeBuilder CRM", "Social Booster"],
-      href: "#products",
+      href: "#products", // hero social-proof / shipped products
     },
     {
       title: "Marketing Packages",

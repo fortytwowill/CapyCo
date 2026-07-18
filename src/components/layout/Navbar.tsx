@@ -14,7 +14,7 @@ import {
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Products", href: "/#products", hasDropdown: true },
+  { name: "Products", href: "/#products", hasDropdown: true }, // #products = hero shipped strip
   { name: "Services", href: "/#services" },
   { name: "About Us", href: "/#about" },
 ];

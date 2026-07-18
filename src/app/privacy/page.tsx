@@ -34,7 +34,7 @@ export default function PrivacyPage() {
 
                     <div className="bg-card rounded-2xl p-8 border border-border mb-8">
                         <p className="text-foreground/80 leading-relaxed">
-                            CapyCo ("we," "us," or "our") is committed to protecting your privacy.
+                            CapyCo (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy.
                             This Privacy Policy explains how we collect, use, disclose, and safeguard
                             your information when you visit our website or use our services.
                         </p>
@@ -111,7 +111,7 @@ export default function PrivacyPage() {
                     <p className="text-foreground/80 mb-6">
                         We may update this Privacy Policy from time to time. We will notify you
                         of any changes by posting the new Privacy Policy on this page and updating
-                        the "Last updated" date.
+                        the &quot;Last updated&quot; date.
                     </p>
 
                     <h2 className="text-2xl font-bold font-syne text-foreground mt-8 mb-4">

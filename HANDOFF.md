@@ -108,3 +108,10 @@ Plus a small bonus rename: WhyCapyCo's "Vibe Coding" feature card is now **"AI-A
 - Branch/PR: `feat/landing-motion-polish` → https://github.com/fortytwowill/CapyCo/pull/11
 - Implemented: GsapReveal + useLandingGsap, section scroll reveals, hero scrub exit, R3F brand lights, mobile WebGL skip, contact success spring, WhatYouGet on GSAP
 - Marquee removed on master (kept out of this PR)
+
+## 2026-07-18 — Content truth + link audit
+- Honest stats (2 live products, 8–12 weeks MVP, 2 countries, 1 studio)
+- Stats SSR always shows final number (no bare suffix flash)
+- `#products` id on hero shipped strip; dead Careers/Blog/`#` legal links removed
+- Socials: only verified GitHub fortytwowill
+- Lint: privacy quotes, MascotFloat, useMediaQuery via useSyncExternalStore, Contact loadTime

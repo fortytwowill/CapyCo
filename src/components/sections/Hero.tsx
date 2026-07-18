@@ -172,7 +172,8 @@ export function Hero() {
             initial={reducedMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reducedMotion ? 0 : 1.15, duration: 0.5 }}
-            className="mb-12 w-full max-w-5xl"
+            id="products"
+            className="mb-12 w-full max-w-5xl scroll-mt-28"
             aria-label={socialProof.label}
           >
             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 text-center">

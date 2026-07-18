@@ -49,7 +49,10 @@ export function Contact() {
         setSubmitStatus("success");
         setSubmitMessage(response.message);
         reset();
-        setValue("loadTime", Date.now());
+        // Reset anti-bot clock after successful send (wall ms — matches server).
+        queueMicrotask(() => {
+          setValue("loadTime", Date.now());
+        });
       } else {
         setSubmitStatus("error");
         setSubmitMessage(response.message);
