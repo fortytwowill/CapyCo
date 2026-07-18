@@ -21,6 +21,10 @@ interface StatItemProps {
   label: string;
 }
 
+function formatStat(value: number, suffix: string) {
+  return `${value}${suffix}`;
+}
+
 function StatItem({ endValue, suffix, label }: StatItemProps) {
   const numberRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,6 +34,10 @@ function StatItem({ endValue, suffix, label }: StatItemProps) {
     () => false,
   );
 
+  // Final value always in DOM (SSR + first paint) so crawlers / no-JS never
+  // see a bare suffix like "%" mid-animation.
+  const finalText = formatStat(endValue, suffix);
+
   useEffect(() => {
     registerGsap();
     const el = numberRef.current;
@@ -37,12 +45,12 @@ function StatItem({ endValue, suffix, label }: StatItemProps) {
     if (!el || !container) return;
 
     if (reducedMotion) {
-      el.textContent = `${endValue}${suffix}`;
+      el.textContent = finalText;
       return;
     }
 
     const obj = { value: 0 };
-    el.textContent = `0${suffix}`;
+    el.textContent = formatStat(0, suffix);
 
     const tween = gsap.to(obj, {
       value: endValue,
@@ -54,30 +62,31 @@ function StatItem({ endValue, suffix, label }: StatItemProps) {
         once: true,
       },
       onUpdate: () => {
-        el.textContent = `${Math.floor(obj.value)}${suffix}`;
+        el.textContent = formatStat(Math.floor(obj.value), suffix);
       },
       onComplete: () => {
-        el.textContent = `${endValue}${suffix}`;
+        el.textContent = finalText;
       },
     });
 
     return () => {
       tween.scrollTrigger?.kill();
       tween.kill();
+      // Restore final so React remount / fast nav doesn't leave a partial
+      if (el) el.textContent = finalText;
     };
-  }, [endValue, suffix, reducedMotion]);
+  }, [endValue, suffix, reducedMotion, finalText]);
 
   return (
     <div
       ref={containerRef}
-      data-reveal
       className="flex flex-col items-center justify-center text-center p-6"
     >
       <span
         ref={numberRef}
         className="text-5xl md:text-6xl lg:text-7xl font-black font-syne text-primary tracking-tighter tabular-nums mb-2"
       >
-        {reducedMotion ? `${endValue}${suffix}` : suffix}
+        {finalText}
       </span>
       <p className="text-sm md:text-base font-medium text-muted-foreground uppercase tracking-wide">
         {label}
@@ -96,13 +105,17 @@ export function Stats() {
   const stats = siteContent.stats.items;
 
   return (
-    <section ref={sectionRef} className="py-20 bg-card relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-20 bg-card relative overflow-hidden"
+      aria-label="Studio at a glance"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(245,166,35,0.03),transparent_70%)]" />
       <div className="mx-auto max-w-6xl px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat, i) => (
+          {stats.map((stat) => (
             <StatItem
-              key={i}
+              key={stat.label}
               endValue={stat.value}
               suffix={stat.suffix}
               label={stat.label}

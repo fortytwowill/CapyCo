@@ -32,8 +32,9 @@ interface MascotFloatProps {
 export function MascotFloat({
     className,
     size = "lg",
-    parallax = false,
+    parallax: _parallax = false,
 }: MascotFloatProps) {
+    void _parallax;
     const sizeClasses = {
         sm: "w-32 h-32",
         md: "w-48 h-48",

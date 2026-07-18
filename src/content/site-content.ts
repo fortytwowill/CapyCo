@@ -22,7 +22,7 @@ export const siteContent = {
     logo: "CapyCo",
     items: [
       { label: "Home", href: "#hero" },
-      { label: "Products", href: "#products" },
+      { label: "Products", href: "#products" }, // hero social-proof strip
       { label: "Services", href: "#services" },
       { label: "About", href: "#about" },
       { label: "Contact", href: "#contact" },
@@ -163,13 +163,15 @@ export const siteContent = {
     ]
   },
 
-  // Stats Section
+  // Stats Section — honest numbers only (no vanity inflation).
+  // Live products = Grapplr + iCTRL. Weeks = typical MVP range from WhatYouGet.
+  // Countries = Brazil founders + Canada HQ. One studio / one team.
   stats: {
     items: [
-      { value: 50, suffix: "+", label: "Projects Delivered" },
-      { value: 20, suffix: "+", label: "Happy Clients" },
-      { value: 99, suffix: "%", label: "Uptime Guaranteed" },
-      { value: 2, suffix: "", label: "Countries" }
+      { value: 2, suffix: "", label: "Live Products" },
+      { value: 8, suffix: "–12", label: "Weeks to MVP" },
+      { value: 2, suffix: "", label: "Countries" },
+      { value: 1, suffix: "", label: "Product Studio" },
     ]
   },
 
@@ -235,9 +237,8 @@ export const siteContent = {
       {
         title: "Company",
         links: [
-          { label: "About", href: "#about" },
-          { label: "Careers", href: "#" },
-          { label: "Blog", href: "#" },
+          { label: "About", href: "/#about" },
+          { label: "Contact", href: "/#contact" },
           { label: "Privacy Policy", href: "/privacy" },
         ]
       },
@@ -245,30 +246,32 @@ export const siteContent = {
         title: "Products",
         links: [
           { label: "Grapplr", href: "https://grapplr.co" },
-          { label: "iCTRL", href: "https://ictrl.app" }
+          { label: "iCTRL", href: "https://ictrl.app" },
         ]
       },
       {
         title: "Services",
         links: [
-          { label: "Development", href: "#services" },
-          { label: "Marketing", href: "#services" },
-          { label: "Consulting", href: "#contact" }
+          { label: "Development", href: "/#services" },
+          { label: "Marketing", href: "/#services" },
+          { label: "Consulting", href: "/#contact" },
         ]
       },
       {
         title: "Connect",
+        // Only verified handles. Add LinkedIn/IG/X when real profiles exist.
         socials: [
-          { label: "GitHub", href: "https://github.com/capyco", icon: "Github" },
-          { label: "LinkedIn", href: "https://linkedin.com/company/capyco", icon: "Linkedin" },
-          { label: "Instagram", href: "https://instagram.com/capyco", icon: "Instagram" },
-          { label: "X", href: "https://x.com/capyco", icon: "Twitter" }
+          {
+            label: "GitHub",
+            href: "https://github.com/fortytwowill",
+            icon: "Github",
+          },
         ]
       }
     ],
     legal: [
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms of Service", href: "#" }
+      { label: "Privacy Policy", href: "/privacy" },
+      // No /terms page yet — omit rather than ship href="#"
     ]
   },
 
