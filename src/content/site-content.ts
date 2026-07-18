@@ -287,13 +287,17 @@ export const siteContent = {
     ]
   },
 
-  // Testimonials (placeholder - hidden until content ready)
+  // Testimonials — section removed from page until we have real quotes.
+  // Do not re-add placeholder names (Sarah Jenkins / Miguel / Elena were fake).
   testimonials: {
-    show: false, // Set to true when testimonials are ready
+    show: false,
     title: "What our clients say",
-    items: [
-      // Add testimonials here when available
-    ]
+    items: [] as readonly {
+      readonly content: string;
+      readonly author: string;
+      readonly role: string;
+      readonly avatar: string;
+    }[],
   },
 
   // SEO

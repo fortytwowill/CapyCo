@@ -49,7 +49,7 @@ Plus a small bonus rename: WhyCapyCo's "Vibe Coding" feature card is now **"AI-A
   - Verified all 10 errors exist on `master` before any of today's branches were created.
   - **Likely cause:** React 19 / Next 16 tightened the rules; the code was authored before the upgrade. Out of scope for this work but worth a follow-up PR.
 - **3 surviving "vibe" mentions** on the live site — all **deliberately kept**, not in scope for PR #7:
-  - `Testimonial` section, Sarah Jenkins quote: "The 'vibe' is real." (a real client using the word, not agency copy)
+  - ~~Testimonial section~~ **removed 2026-07-18** — Sarah Jenkins / Miguel Torres / Elena Rossi were placeholder quotes, not real clients.
   - `Contact` section body: "vibe over ideas" + "turn your idea into a vibe" (CTA copy, not agency positioning)
   - These are intentional / contextual, not the methodology-jargon "vibe coding" framing that buyers don't search for.
 - **3 "vibe" mentions in `WhyCapyCo` feature card highlight** (🇧🇷 🇨🇦) — kept per brief (founders' origin story, not a language toggle signal).
@@ -115,3 +115,8 @@ Plus a small bonus rename: WhyCapyCo's "Vibe Coding" feature card is now **"AI-A
 - `#products` id on hero shipped strip; dead Careers/Blog/`#` legal links removed
 - Socials: only verified GitHub fortytwowill
 - Lint: privacy quotes, MascotFloat, useMediaQuery via useSyncExternalStore, Contact loadTime
+
+## 2026-07-18 — Remove fake testimonials
+- Deleted `Testimonial.tsx` (Sarah Jenkins, Miguel Torres, Elena Rossi placeholders)
+- Dropped from `page.tsx` section stack
+- `siteContent.testimonials` kept empty stub (`show: false`) for future real quotes
