@@ -103,7 +103,8 @@ Plus a small bonus rename: WhyCapyCo's "Vibe Coding" feature card is now **"AI-A
 - [ ] **Asset Check**: Replace placeholder icons in `Marquee.tsx` with real brand logos when available.
 
 
-## 2026-07-18 — Landing motion polish plan
-- Plan: `docs/plans/2026-07-18-landing-motion-polish.md`
-- Skills: GSAP pack, threejs-*, genjutsu, motion-design, design-dna (installed on Claude/OpenCode/Codex)
-- Not implemented yet — plan only.
+## 2026-07-18 — Landing motion polish
+- Plan: `docs/plans/2026-07-18-landing-motion-polish.md` + `docs/plans/capyco-motion-brief.md`
+- Branch/PR: `feat/landing-motion-polish` → https://github.com/fortytwowill/CapyCo/pull/11
+- Implemented: GsapReveal + useLandingGsap, section scroll reveals, hero scrub exit, R3F brand lights, mobile WebGL skip, contact success spring, WhatYouGet on GSAP
+- Marquee removed on master (kept out of this PR)
