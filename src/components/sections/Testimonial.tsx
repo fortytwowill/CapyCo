@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { GsapReveal } from "@/components/shared/GsapReveal";
 
 const testimonials = [
   {
@@ -70,17 +71,17 @@ export function Testimonial() {
     <section className="py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold font-syne text-foreground mb-6"
-          >
-            Don&apos;t just take our{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              word for it.
-            </span>
-          </motion.h2>
+          <GsapReveal>
+            <h2
+              data-reveal
+              className="text-4xl md:text-5xl font-bold font-syne text-foreground mb-6"
+            >
+              Don&apos;t just take our{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                word for it.
+              </span>
+            </h2>
+          </GsapReveal>
         </div>
 
         <div className="relative h-[300px] md:h-[260px] w-full flex items-center justify-center">

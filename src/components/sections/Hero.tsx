@@ -1,11 +1,14 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ChevronRight, ArrowUpRight } from "lucide-react";
 import { wordReveal, wordItem } from "@/lib/animations";
 import { siteContent } from "@/content/site-content";
+import { useLandingGsap } from "@/hooks/useLandingGsap";
+import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 
 const HeroBlob = dynamic(() => import("@/components/three/HeroBlob"), {
   ssr: false,
@@ -14,29 +17,80 @@ const HeroBlob = dynamic(() => import("@/components/three/HeroBlob"), {
 
 const HeroMascot = dynamic(
   () => import("@/components/sections/HeroMascot").then((mod) => mod.HeroMascot),
-  { ssr: false, loading: () => <div className="relative w-full max-w-[500px] mt-16 md:mt-20 mx-auto" /> }
+  {
+    ssr: false,
+    loading: () => (
+      <div className="relative w-full max-w-[500px] mt-16 md:mt-20 mx-auto" />
+    ),
+  },
 );
 
-// Split the hero headline into words for the word-by-word reveal animation.
-// We keep the same animation surface (wordReveal / wordItem) so the design
-// rhythm is unchanged; we just feed it the new outcome-led headline from
-// site-content.
 function headlineWords(text: string) {
   return text.split(/\s+/).filter(Boolean);
 }
 
 export function Hero() {
-  const { headline, subtext, primaryCta, secondaryCta, socialProof, trustPills, mascotAlt } =
-    siteContent.hero;
+  const {
+    headline,
+    subtext,
+    primaryCta,
+    secondaryCta,
+    socialProof,
+    trustPills,
+    mascotAlt,
+  } = siteContent.hero;
   const words = headlineWords(headline);
+  const reducedMotion = usePrefersReducedMotion();
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const blobWrapRef = useRef<HTMLDivElement>(null);
+
+  useLandingGsap(
+    ({ gsap, ScrollTrigger, reduced }) => {
+      const section = sectionRef.current;
+      const content = contentRef.current;
+      const blob = blobWrapRef.current;
+      if (!section || !content || reduced) return;
+
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 768px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: "bottom top",
+            scrub: 0.6,
+          },
+        });
+        tl.to(content, { y: -48, opacity: 0.35, ease: "none" }, 0);
+        if (blob) {
+          tl.to(blob, { scale: 1.12, opacity: 0.25, ease: "none" }, 0);
+        }
+        return () => {
+          tl.scrollTrigger?.kill();
+          tl.kill();
+        };
+      });
+
+      return () => {
+        mm.revert();
+        ScrollTrigger.getAll().forEach((trigger) => {
+          if (trigger.trigger === section) trigger.kill();
+        });
+      };
+    },
+    sectionRef,
+    [reducedMotion],
+  );
 
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col items-center justify-center"
       suppressHydrationWarning
     >
-      {/* Mesh gradient background */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -45,35 +99,31 @@ export function Hero() {
         }}
       />
 
-      {/* Three.js blob */}
-      <div className="absolute inset-0 opacity-60">
+      <div
+        ref={blobWrapRef}
+        className="absolute inset-0 opacity-60 will-change-transform"
+      >
         <HeroBlob />
       </div>
 
-      <div className="container px-4 md:px-6 z-10 mx-auto max-w-6xl text-center flex flex-col items-center relative">
-        {/* (availability banner removed — was a Q3 2026 scarcity line. See
-            HANDOFF.md for the rationale: when the line is stale it does more
-            harm than good. Add a new availability signal back into
-            site-content.hero when Q* changes.) */}
-
-        {/* Headline — outcome-led, not methodology-led.
-            Renders the H1 word-by-word using the existing wordReveal animation
-            so the visual rhythm matches the rest of the dark theme. */}
+      <div
+        ref={contentRef}
+        className="container px-4 md:px-6 z-10 mx-auto max-w-6xl text-center flex flex-col items-center relative will-change-transform"
+      >
         <motion.h1
           className="font-syne text-4xl md:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tighter mb-8 max-w-5xl"
-          variants={wordReveal}
-          initial="hidden"
+          variants={reducedMotion ? undefined : wordReveal}
+          initial={reducedMotion ? false : "hidden"}
           animate="visible"
         >
           {words.map((word, i) => {
-            // Highlight outcome-bearing words in the gradient treatment so
-            // the scan-from-the-eyebrow still works on a longer headline.
             const isAccent =
-              /^(launch|grow|build|ship|product|grapplr)$/i.test(word) || i === words.length - 1;
+              /^(launch|grow|build|ship|product|grapplr)$/i.test(word) ||
+              i === words.length - 1;
             return (
               <motion.span
                 key={`${word}-${i}`}
-                variants={wordItem}
+                variants={reducedMotion ? undefined : wordItem}
                 className={
                   "inline-block mr-[0.25em] " +
                   (isAccent
@@ -87,21 +137,19 @@ export function Hero() {
           })}
         </motion.h1>
 
-        {/* Subheading */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
+          transition={{ delay: reducedMotion ? 0 : 0.8, duration: 0.6 }}
           className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10"
         >
           {subtext}
         </motion.p>
 
-        {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0, duration: 0.5 }}
+          transition={{ delay: reducedMotion ? 0 : 1.0, duration: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
         >
           <Link
@@ -119,15 +167,11 @@ export function Hero() {
           </Link>
         </motion.div>
 
-        {/* Social proof strip — "We've shipped"
-            Renders one card per product in site-content.hero.socialProof.products.
-            Two side-by-side on md+, stacked on mobile. Each card links to the
-            live product; the first one is the primary focus. */}
         {socialProof?.products && socialProof.products.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.15, duration: 0.5 }}
+            transition={{ delay: reducedMotion ? 0 : 1.15, duration: 0.5 }}
             className="mb-12 w-full max-w-5xl"
             aria-label={socialProof.label}
           >
@@ -146,7 +190,10 @@ export function Hero() {
                   <div className="flex-1 min-w-0">
                     <p className="text-base sm:text-lg font-semibold text-foreground leading-snug">
                       <span className="text-primary">{product.name}</span>
-                      <span className="text-muted-foreground"> — {product.tagline}</span>
+                      <span className="text-muted-foreground">
+                        {" "}
+                        — {product.tagline}
+                      </span>
                     </p>
                   </div>
                   <a
@@ -164,11 +211,10 @@ export function Hero() {
           </motion.div>
         )}
 
-        {/* Trust badges */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={reducedMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.3, duration: 0.5 }}
+          transition={{ delay: reducedMotion ? 0 : 1.3, duration: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-3"
         >
           {trustPills.map((pill) => (
@@ -182,7 +228,6 @@ export function Hero() {
         </motion.div>
 
         <HeroMascot />
-        {/* Alt text source for screen readers, kept in DOM for SEO */}
         <span className="sr-only">{mascotAlt}</span>
       </div>
     </section>

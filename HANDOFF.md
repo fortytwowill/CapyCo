@@ -98,3 +98,13 @@ Plus a small bonus rename: WhyCapyCo's "Vibe Coding" feature card is now **"AI-A
 - **PR #6**: https://github.com/fortytwowill/CapyCo/pull/6 — MERGED — `docs/handoff-context-2026-07-12` — `64bdaac`
 - **PR #7**: https://github.com/fortytwowill/CapyCo/pull/7 — MERGED — `fix/capyco-landing-cleanup` — `97cb6ad` (squash of `5e09b9a`)
 - **Author verified**: `Will Gomes <willianporto@gmail.com>` (Vercel-accepted) for all four.
+- [ ] **Complete Agent Files**: Create/update `AGENTS.md` and `GEMINI.md` with the requested instructions.
+- [ ] **Plan Update**: Revise `CAPYCO_LANDING_PAGE_PLAN.md` to match the current Dark Theme implementation.
+- [ ] **Asset Check**: Replace placeholder icons in `Marquee.tsx` with real brand logos when available.
+
+
+## 2026-07-18 — Landing motion polish
+- Plan: `docs/plans/2026-07-18-landing-motion-polish.md` + `docs/plans/capyco-motion-brief.md`
+- Branch/PR: `feat/landing-motion-polish` → https://github.com/fortytwowill/CapyCo/pull/11
+- Implemented: GsapReveal + useLandingGsap, section scroll reveals, hero scrub exit, R3F brand lights, mobile WebGL skip, contact success spring, WhatYouGet on GSAP
+- Marquee removed on master (kept out of this PR)

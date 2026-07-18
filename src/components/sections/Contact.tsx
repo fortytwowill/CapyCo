@@ -139,13 +139,24 @@ export function Contact() {
             <div className="bg-card rounded-2xl p-8 md:p-12 border border-border">
               {submitStatus === "success" ? (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.92 }}
                   animate={{ opacity: 1, scale: 1 }}
+                  transition={{ type: "spring", stiffness: 280, damping: 22 }}
                   className="h-full min-h-[400px] flex flex-col items-center justify-center text-center space-y-6"
                 >
-                  <div className="w-20 h-20 rounded-full bg-secondary/20 text-secondary flex items-center justify-center">
-                    <CheckCircle2 size={40} />
-                  </div>
+                  <motion.div
+                    initial={{ scale: 0.6, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.05 }}
+                    className="relative w-24 h-24 rounded-full bg-secondary/20 text-secondary flex items-center justify-center"
+                  >
+                    <span
+                      aria-hidden
+                      className="absolute inset-0 rounded-full bg-secondary/25 animate-ping opacity-40"
+                      style={{ animationDuration: "1.4s", animationIterationCount: 2 }}
+                    />
+                    <CheckCircle2 size={44} className="relative z-10" strokeWidth={1.75} />
+                  </motion.div>
                   <h3 className="text-3xl font-bold font-syne text-foreground">
                     Message Sent!
                   </h3>
