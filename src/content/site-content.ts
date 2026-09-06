@@ -59,6 +59,12 @@ export const siteContent = {
           tagline: "Real-time inventory across every warehouse, every location, every shift.",
           href: "https://ictrl.app",
           ctaLabel: "See it in action"
+        },
+        {
+          name: "Fasteppp",
+          tagline: "Know exactly what to study before your EPPP — domain-weighted diagnostic and adaptive practice.",
+          href: "https://fasteppp.com",
+          ctaLabel: "Try the beta"
         }
       ]
     },
@@ -164,11 +170,11 @@ export const siteContent = {
   },
 
   // Stats Section — honest numbers only (no vanity inflation).
-  // Live products = Grapplr + iCTRL. Weeks = typical MVP range from WhatYouGet.
+  // Live products = Grapplr + iCTRL + Fasteppp. Weeks = typical MVP range from WhatYouGet.
   // Countries = Brazil founders + Canada HQ. One studio / one team.
   stats: {
     items: [
-      { value: 2, suffix: "", label: "Live Products" },
+      { value: 3, suffix: "", label: "Live Products" },
       { value: 8, suffix: "–12", label: "Weeks to MVP" },
       { value: 2, suffix: "", label: "Countries" },
       { value: 1, suffix: "", label: "Product Studio" },
@@ -247,6 +253,7 @@ export const siteContent = {
         links: [
           { label: "Grapplr", href: "https://grapplr.co" },
           { label: "iCTRL", href: "https://ictrl.app" },
+          { label: "Fasteppp", href: "https://fasteppp.com" },
         ]
       },
       {
