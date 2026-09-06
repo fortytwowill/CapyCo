@@ -165,18 +165,24 @@ export const siteContent = {
         title: "Brazilian Warmth, Canadian Quality",
         description: "Best of both worlds. The creativity and passion of Brazil combined with the reliability and precision of Canada.",
         highlight: "🇧🇷 🇨🇦"
+      },
+      {
+        icon: "Coffee",
+        title: "Italian Devs, Espresso Included",
+        description: "Deploys like a good espresso: short, strong, and never before the first cup. Nonna forbid.",
+        highlight: "☕ Deployed al dente"
       }
     ]
   },
 
   // Stats Section — honest numbers only (no vanity inflation).
   // Live products = Grapplr + iCTRL + Fasteppp. Weeks = typical MVP range from WhatYouGet.
-  // Countries = Brazil founders + Canada HQ. One studio / one team.
+  // Countries = Brazil founders + Canada HQ + Italian devs in Italy. One studio / one team.
   stats: {
     items: [
       { value: 3, suffix: "", label: "Live Products" },
       { value: 8, suffix: "–12", label: "Weeks to MVP" },
-      { value: 2, suffix: "", label: "Countries" },
+      { value: 3, suffix: "", label: "Countries" },
       { value: 1, suffix: "", label: "Product Studio" },
     ]
   },
@@ -237,7 +243,7 @@ export const siteContent = {
     // Tagline shown in the bottom bar. No Brazil/Canada flags (per
     // 2026-07-12 user decision — flags implied a PT/EN toggle that
     // doesn't exist; the flags were removed rather than building a toggle).
-    tagline: "Made with a lot of Brazilian ☕ in Calgary, Canada.",
+    tagline: "Made with Brazilian ☕ and Italian 🍝 in Calgary, Canada.",
     copyright: `© ${new Date().getFullYear()} Capybara Corporation. All rights reserved.`,
     columns: [
       {
