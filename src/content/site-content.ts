@@ -14,7 +14,7 @@ export const siteContent = {
     // anywhere else the agency name appears standalone.
     pwaName: "CapyCo — Product Studio",
     description:
-      "We build, launch, and grow software products. A product studio founded by Brazilians in Calgary, Canada.",
+      "We build, launch, and grow software products. A product studio based in Calgary, Canada.",
   },
 
   // Navigation
@@ -233,11 +233,11 @@ export const siteContent = {
     // tone ("We build, launch, and grow your product."). No "vibe coding" /
     // "wild ideas" / "digital magic" framing — that was playful but unfocused.
     description:
-      "We build, launch, and grow software products. A product studio founded by Brazilians in Calgary, Canada.",
+      "We build, launch, and grow software products. A product studio based in Calgary, Canada.",
     // Tagline shown in the bottom bar. No Brazil/Canada flags (per
     // 2026-07-12 user decision — flags implied a PT/EN toggle that
     // doesn't exist; the flags were removed rather than building a toggle).
-    tagline: "Made with capybara-grade chill in Calgary, Canada.",
+    tagline: "Made by tech-savvy capybaras in Canada.",
     copyright: `© ${new Date().getFullYear()} Capybara Corporation. All rights reserved.`,
     columns: [
       {
