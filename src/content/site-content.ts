@@ -171,7 +171,7 @@ export const siteContent = {
 
   // Stats Section — honest numbers only (no vanity inflation).
   // Live products = Grapplr + iCTRL + Fasteppp. Weeks = typical MVP range from WhatYouGet.
-  // Countries = Brazil founders + Canada HQ + Italian devs in Italy. One studio / one team.
+  // Countries = team members across Brazil, Canada and Italy. One studio / one team.
   stats: {
     items: [
       { value: 3, suffix: "", label: "Live Products" },
@@ -234,7 +234,7 @@ export const siteContent = {
     // "wild ideas" / "digital magic" framing — that was playful but unfocused.
     description:
       "We build, launch, and grow software products. A product studio based in Calgary, Canada.",
-    // Tagline shown in the bottom bar. No Brazil/Canada flags (per
+    // Tagline shown in the bottom bar. No country flags (per
     // 2026-07-12 user decision — flags implied a PT/EN toggle that
     // doesn't exist; the flags were removed rather than building a toggle).
     tagline: "Made by tech-savvy capybaras in Canada.",
@@ -311,7 +311,7 @@ export const siteContent = {
   seo: {
     title: "CapyCo | We build, launch, and grow your product",
     // Outcome-led meta description. Matches the H1 tone. Mentions Calgary
-    // (the HQ city) and the Brazilian-founded-in-Canada angle without
+    // (the HQ city) without
     // reverting to "vibe coding" / "wild ideas into digital magic" framing.
     description:
       "CapyCo is a product studio in Calgary. We design, build, and market software people actually use — see Grapplr, our BJJ partner-finder app.",
