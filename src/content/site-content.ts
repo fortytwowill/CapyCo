@@ -162,15 +162,9 @@ export const siteContent = {
       },
       {
         icon: "Globe",
-        title: "Brazilian Warmth, Canadian Quality",
-        description: "Best of both worlds. The creativity and passion of Brazil combined with the reliability and precision of Canada.",
-        highlight: "🇧🇷 🇨🇦"
-      },
-      {
-        icon: "Coffee",
-        title: "Italian Devs, Espresso Included",
-        description: "Deploys like a good espresso: short, strong, and never before the first cup. Nonna forbid.",
-        highlight: "☕ Deployed al dente"
+        title: "Calm Under Any Current",
+        description: "Capybaras stay chill in any water. Our team stays calm in any deadline — steady progress, zero panic, hot-spring energy.",
+        highlight: "🦫 Unbothered. Shipping."
       }
     ]
   },
@@ -243,7 +237,7 @@ export const siteContent = {
     // Tagline shown in the bottom bar. No Brazil/Canada flags (per
     // 2026-07-12 user decision — flags implied a PT/EN toggle that
     // doesn't exist; the flags were removed rather than building a toggle).
-    tagline: "Made with Brazilian ☕ and Italian 🍝 in Calgary, Canada.",
+    tagline: "Made with capybara-grade chill in Calgary, Canada.",
     copyright: `© ${new Date().getFullYear()} Capybara Corporation. All rights reserved.`,
     columns: [
       {
