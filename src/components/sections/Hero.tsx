@@ -1,29 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import { ChevronRight, ArrowUpRight } from "lucide-react";
-import { wordReveal, wordItem } from "@/lib/animations";
+import { ChevronRight, ArrowUpRight, Server, Database, Lock } from "lucide-react";
 import { siteContent } from "@/content/site-content";
 import { useLandingGsap } from "@/hooks/useLandingGsap";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
-
-const HeroBlob = dynamic(() => import("@/components/three/HeroBlob"), {
-  ssr: false,
-  loading: () => <div className="absolute inset-0" />,
-});
-
-const HeroMascot = dynamic(
-  () => import("@/components/sections/HeroMascot").then((mod) => mod.HeroMascot),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="relative w-full max-w-[500px] mt-16 md:mt-20 mx-auto" />
-    ),
-  },
-);
 
 function headlineWords(text: string) {
   return text.split(/\s+/).filter(Boolean);
@@ -37,20 +19,17 @@ export function Hero() {
     secondaryCta,
     socialProof,
     trustPills,
-    mascotAlt,
   } = siteContent.hero;
   const words = headlineWords(headline);
   const reducedMotion = usePrefersReducedMotion();
 
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const blobWrapRef = useRef<HTMLDivElement>(null);
 
   useLandingGsap(
     ({ gsap, ScrollTrigger, reduced }) => {
       const section = sectionRef.current;
       const content = contentRef.current;
-      const blob = blobWrapRef.current;
       if (!section || !content || reduced) return;
 
       const mm = gsap.matchMedia();
@@ -64,9 +43,6 @@ export function Hero() {
           },
         });
         tl.to(content, { y: -48, opacity: 0.35, ease: "none" }, 0);
-        if (blob) {
-          tl.to(blob, { scale: 1.12, opacity: 0.25, ease: "none" }, 0);
-        }
         return () => {
           tl.scrollTrigger?.kill();
           tl.kill();
@@ -88,148 +64,105 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col items-center justify-center"
+      className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col items-center justify-center bg-background"
       suppressHydrationWarning
     >
-      <div
-        className="absolute inset-0 pointer-events-none"
+      {/* Technical Grid Background */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 20% 40%, rgba(245,166,35,0.12) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 80% 60%, rgba(0,212,170,0.08) 0%, transparent 60%), #0a0a0f",
+          backgroundImage: `linear-gradient(to right, var(--foreground) 1px, transparent 1px), linear-gradient(to bottom, var(--foreground) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
         }}
       />
-
-      <div
-        ref={blobWrapRef}
-        className="absolute inset-0 opacity-60 will-change-transform"
-      >
-        <HeroBlob />
-      </div>
 
       <div
         ref={contentRef}
         className="container px-4 md:px-6 z-10 mx-auto max-w-6xl text-center flex flex-col items-center relative will-change-transform"
       >
-        <motion.h1
-          className="font-syne text-4xl md:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tighter mb-8 max-w-5xl"
-          variants={reducedMotion ? undefined : wordReveal}
-          initial={reducedMotion ? false : "hidden"}
-          animate="visible"
-        >
-          {words.map((word, i) => {
-            const isAccent =
-              /^(launch|grow|build|ship|product|grapplr)$/i.test(word) ||
-              i === words.length - 1;
-            return (
-              <motion.span
-                key={`${word}-${i}`}
-                variants={reducedMotion ? undefined : wordItem}
-                className={
-                  "inline-block mr-[0.25em] " +
-                  (isAccent
-                    ? "text-transparent bg-clip-text bg-gradient-to-r from-[#F5A623] to-[#FF6B6B]"
-                    : "text-foreground")
-                }
-              >
-                {word}
-              </motion.span>
-            );
-          })}
-        </motion.h1>
+        {/* Trust Pills - Top */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+          {trustPills.map((pill) => (
+            <span
+              key={pill.label}
+              className="inline-flex items-center rounded-sm border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-mono font-medium text-primary uppercase tracking-wider"
+            >
+              {pill.label}
+            </span>
+          ))}
+        </div>
 
-        <motion.p
-          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: reducedMotion ? 0 : 0.8, duration: 0.6 }}
-          className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10"
-        >
+        <h1 className="font-syne text-4xl md:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tighter mb-8 max-w-5xl text-foreground">
+          {words.map((word, i) => (
+            <span key={`${word}-${i}`} className="inline-block mr-[0.25em]">
+              {word}
+            </span>
+          ))}
+        </h1>
+
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10 font-mono">
           {subtext}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: reducedMotion ? 0 : 1.0, duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <Link
             href={primaryCta.href}
-            className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-lg hover:scale-105 hover:shadow-[0_0_30px_rgba(245,166,35,0.4)] transition-all duration-300 flex items-center justify-center group cursor-pointer"
+            className="px-8 py-4 rounded-sm bg-primary text-primary-foreground font-medium text-lg hover:bg-primary/90 transition-colors flex items-center justify-center group cursor-pointer border border-primary"
           >
             {primaryCta.label}
             <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link
             href={secondaryCta.href}
-            className="px-8 py-4 rounded-full border border-white/10 text-foreground font-medium text-lg hover:bg-white/5 hover:border-white/20 transition-all duration-300 cursor-pointer"
+            className="px-8 py-4 rounded-sm border border-border text-foreground font-medium text-lg hover:bg-white/5 transition-colors cursor-pointer"
           >
             {secondaryCta.label}
           </Link>
-        </motion.div>
+        </div>
 
+        {/* Social Proof / Systems Built */}
         {socialProof?.products && socialProof.products.length > 0 && (
-          <motion.div
-            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: reducedMotion ? 0 : 1.15, duration: 0.5 }}
+          <div
             id="products"
             className="mb-12 w-full max-w-5xl scroll-mt-28"
             aria-label={socialProof.label}
           >
-            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 text-center">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6 text-center font-mono">
               {socialProof.label}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {socialProof.products.map((product) => (
                 <div
                   key={product.name}
-                  className="group relative flex flex-col sm:flex-row items-center gap-4 sm:gap-5 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-5 sm:p-6 text-left hover:border-primary/40 transition-colors"
+                  className="group relative flex flex-col items-start gap-4 rounded-sm border border-border bg-card p-6 text-left hover:border-primary/40 transition-colors"
                 >
-                  <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary font-syne font-black text-lg">
-                    {product.name.charAt(0)}
+                  <div className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-sm bg-primary/10 text-primary">
+                    {product.name === "iCTRL" ? <Database className="w-5 h-5" /> : 
+                     product.name === "Grapplr" ? <Server className="w-5 h-5" /> : 
+                     <Lock className="w-5 h-5" />}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-base sm:text-lg font-semibold text-foreground leading-snug">
-                      <span className="text-primary">{product.name}</span>
-                      <span className="text-muted-foreground">
-                        {" "}
-                        — {product.tagline}
-                      </span>
+                    <p className="text-base font-bold text-foreground leading-snug mb-2">
+                      {product.name}
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {product.tagline}
                     </p>
                   </div>
                   <a
                     href={product.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/40 text-primary font-medium text-sm hover:bg-primary/10 hover:border-primary transition-all flex-shrink-0"
+                    className="inline-flex items-center gap-1.5 text-primary font-mono text-xs uppercase tracking-wider hover:underline mt-2"
                   >
                     {product.ctaLabel}
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <ArrowUpRight className="w-3 h-3" />
                   </a>
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         )}
-
-        <motion.div
-          initial={reducedMotion ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: reducedMotion ? 0 : 1.3, duration: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-3"
-        >
-          {trustPills.map((pill) => (
-            <span
-              key={pill.label}
-              className="inline-flex items-center rounded-full border border-secondary/30 bg-secondary/5 px-4 py-1.5 text-sm font-medium text-secondary"
-            >
-              {pill.label}
-            </span>
-          ))}
-        </motion.div>
-
-        <HeroMascot />
-        <span className="sr-only">{mascotAlt}</span>
       </div>
     </section>
   );
