@@ -9,12 +9,11 @@ export const siteContent = {
   brand: {
     shortName: "CapyCo",
     fullName: "CapyCo — Capybara Corporation",
-    // Outcome-led one-liner. Matches the H1 tone ("We build, launch, and grow
-    // your product."). Used as the PWA name, OG/twitter title suffix, and
-    // anywhere else the agency name appears standalone.
-    pwaName: "CapyCo — Product Studio",
+    // B2B outcome-led one-liner. Used as PWA name, OG/twitter title suffix,
+    // and anywhere the company name appears standalone. No jargon.
+    pwaName: "CapyCo — Custom SaaS & Automation",
     description:
-      "We build, launch, and grow software products. A product studio based in Calgary, Canada.",
+      "We build customized SaaS and business automations. Fully self-hosted on your infrastructure — you own the database, we build the engine.",
   },
 
   // Navigation
@@ -32,74 +31,72 @@ export const siteContent = {
 
   // Hero Section
   hero: {
-    headline: "We build, launch, and grow your product.",
-    subtext: "A product studio for ambitious founders. We turn your idea into a working product in 8–12 weeks — design, engineering, and growth under one roof.",
+    headline: "Custom SaaS & Automation Built for Your Business.",
+    subtext: "Tailored software solutions deployed on your private cloud or on-prem servers. You own the data, the database, and the keys — we design, build, and maintain the system that runs your operations.",
     primaryCta: {
-      label: "Start Your Project",
+      label: "Discuss Your Workflow",
       href: "#contact"
     },
     secondaryCta: {
-      label: "Explore Services",
+      label: "See How It Works",
       href: "#services"
     },
-    // New: outcome-led social proof strip in the hero. "We've shipped" is
-    // the agency's single best asset; surface real products where buyers
-    // can see them. Add/remove entries as the product portfolio changes.
+    // Proof of capability: real self-hosted systems we've shipped.
     socialProof: {
-      label: "We've shipped",
+      label: "Systems we've built",
       products: [
         {
-          name: "Grapplr",
-          tagline: "Find a BJJ training partner in your city in under 60 seconds.",
-          href: "https://grapplr.co",
-          ctaLabel: "Try it live"
+          name: "iCTRL",
+          tagline: "Self-hosted inventory management across every warehouse, location, and shift — client-owned PostgreSQL.",
+          href: "https://ictrl.app",
+          ctaLabel: "View case study"
         },
         {
-          name: "iCTRL",
-          tagline: "Real-time inventory across every warehouse, every location, every shift.",
-          href: "https://ictrl.app",
-          ctaLabel: "See it in action"
+          name: "Grapplr",
+          tagline: "Custom matchmaking platform with dedicated tenancy and isolated data per organisation.",
+          href: "https://grapplr.co",
+          ctaLabel: "View architecture"
         },
         {
           name: "Fasteppp",
-          tagline: "Know exactly what to study before your EPPP — domain-weighted diagnostic and adaptive practice.",
+          tagline: "Adaptive diagnostic engine deployed on client-managed infrastructure with full data sovereignty.",
           href: "https://fasteppp.com",
-          ctaLabel: "Try the beta"
+          ctaLabel: "View deployment model"
         }
       ]
     },
     trustPills: [
-      { icon: "Check", label: "SaaS Products" },
-      { icon: "Check", label: "Marketing" },
-      { icon: "Check", label: "Dev Services" }
+      { icon: "Check", label: "Self-Hosted SaaS" },
+      { icon: "Check", label: "Business Automation" },
+      { icon: "Check", label: "Client-Owned Data" }
     ],
     mascotAlt: "CapyCo mascot - a nerdy capybara coding on a laptop"
   },
 
   // Services Section
   services: {
-    title: "What We Do",
-    subtitle: "From concept to launch, we've got you covered",
+    title: "What We Build",
+    subtitle: "Software tailored to your operations, not forced into a generic multi-tenant box",
     items: [
       {
-        icon: "Monitor",
-        title: "SaaS Products",
-        description: "Ready-to-use apps with subscription plans that solve real problems.",
-        cta: "View Products",
-        href: "#products"
-      },
-      {
-        icon: "Megaphone",
-        title: "Marketing Packages",
-        description: "SEO, paid ads, social media, and content strategy that drives growth.",
-        cta: "View Services",
+        icon: "Database",
+        title: "Custom SaaS Platforms",
+        description: "Purpose-built applications designed around your exact workflows. Your schema, your rules, your upgrade cadence.",
+        cta: "Explore Approach",
         href: "#services"
       },
       {
-        icon: "Wrench",
-        title: "Custom Development",
-        description: "Bespoke web & mobile apps built with modern tech and clean code.",
-        cta: "Start a Project",
+        icon: "Server",
+        title: "Self-Hosted Deployment",
+        description: "Deployed on your private cloud, VPC, or on-prem hardware. No shared environments, no third-party data access.",
+        cta: "Infrastructure Options",
+        href: "#contact"
+      },
+      {
+        icon: "Workflow",
+        title: "Business Process Automation",
+        description: "Replace manual handoffs and spreadsheet chains with reliable, auditable automation that lives inside your stack.",
+        cta: "Map Your Workflow",
         href: "#contact"
       }
     ]
@@ -107,32 +104,32 @@ export const siteContent = {
 
   // What You'll Get Section (neoomni-style concrete outcomes list)
   whatYouGet: {
-    title: "What you’ll get",
-    subtitle: "Concrete deliverables. No vague promises.",
+    title: "What you'll get",
+    subtitle: "Concrete deliverables. Full ownership. No vendor lock-in.",
     items: [
       {
-        title: "A shipped MVP in 8–12 weeks",
-        description: "Design, build, and deploy a working product you can put in front of users — not a slide deck."
+        title: "A system designed around your operations",
+        description: "We map your actual workflows before writing a line of code. The software fits your business, not the other way around."
       },
       {
-        title: "A codebase your team can own",
-        description: "Modern, documented, type-safe. We hand it over with the keys — no vendor lock-in, no mystery services."
+        title: "100% data ownership",
+        description: "Your database, your encryption keys, your backups. We never touch production data unless you explicitly grant access for support."
       },
       {
-        title: "Marketing that ships with the product",
-        description: "Landing page, SEO, analytics, and a launch plan — baked in from day one, not bolted on at the end."
+        title: "Self-hosted from day one",
+        description: "Deployed on your AWS/GCP/Azure tenant, your private cloud, or on-prem. No shared SaaS tenancy, no data commingling."
       },
       {
-        title: "Weekly demos, not monthly status reports",
-        description: "Loom walkthroughs every Friday. You always know what shipped, what’s next, and what’s blocking."
+        title: "A codebase your team can maintain",
+        description: "Modern, documented, type-safe. Full source handover with runbooks — your internal team can operate it independently."
       },
       {
-        title: "A product, not a project",
-        description: "We think like founders: retention, pricing, onboarding, growth loops. We build things people pay for."
+        title: "Automation that replaces manual work",
+        description: "Ingest, transform, route, and report without human intervention. Auditable logs, retry logic, and alerting baked in."
       },
       {
-        title: "One team, design through launch",
-        description: "No handoffs between a designer, a dev shop, and a marketing agency. One team, one Slack channel, one bill."
+        title: "Ongoing support, not abandonment",
+        description: "Maintenance retainers, security patches, and feature extensions available. Or walk away with everything — your call."
       }
     ]
   },
@@ -140,31 +137,31 @@ export const siteContent = {
   // Why CapyCo Section
   whyUs: {
     title: "Why CapyCo?",
-    subtitle: "The perfect blend of creativity and technical excellence",
+    subtitle: "Enterprise-grade engineering without the enterprise overhead",
     features: [
       {
-        icon: "Rocket",
-        title: "Ship Fast, Stay Chill",
-        description: "Agile workflows without the stress. No crunch, no burnout — just consistent progress and transparent communication.",
-        highlight: "Zero missed deadlines"
+        icon: "Shield",
+        title: "Data Sovereignty First",
+        description: "Your data never leaves your infrastructure. We architect for compliance, isolation, and auditability from the first commit.",
+        highlight: "Zero shared tenancy"
       },
       {
-        icon: "TrendingUp",
-        title: "Growth-Driven",
-        description: "Marketing strategy baked into every pixel. We don’t just build products; we build products that grow.",
-        highlight: "Data-informed design"
+        icon: "Settings",
+        title: "Built for Your Workflow",
+        description: "No forcing your operations into a generic product. We design around your processes, your terminology, your edge cases.",
+        highlight: "Domain-driven design"
       },
       {
         icon: "Zap",
-        title: "AI-Assisted Development",
-        description: "We use cutting-edge AI tools to ship faster without sacrificing quality. Your speed, our craft.",
-        highlight: "2x faster delivery"
+        title: "Automation That Actually Ships",
+        description: "We don't demo prototypes and disappear. Every automation is production-hardened with error handling, logging, and recovery.",
+        highlight: "Production-grade defaults"
       },
       {
-        icon: "Globe",
-        title: "Calm Under Any Current",
-        description: "Capybaras stay chill in any water. Our team stays calm in any deadline — steady progress, zero panic, hot-spring energy.",
-        highlight: "🦫 Unbothered. Shipping."
+        icon: "Lock",
+        title: "No Vendor Lock-In",
+        description: "Open standards, portable schemas, standard Postgres/Redis/queues. Migrate away anytime — we build for your independence.",
+        highlight: "Exit-ready architecture"
       }
     ]
   },
@@ -174,18 +171,18 @@ export const siteContent = {
   // Countries = team members across Brazil, Canada and Italy. One studio / one team.
   stats: {
     items: [
-      { value: 3, suffix: "", label: "Live Products" },
-      { value: 8, suffix: "–12", label: "Weeks to MVP" },
-      { value: 3, suffix: "", label: "Countries" },
-      { value: 1, suffix: "", label: "Product Studio" },
+      { value: 3, suffix: "", label: "Self-Hosted Systems Shipped" },
+      { value: 100, suffix: "%", label: "Client Data Ownership" },
+      { value: 0, suffix: "", label: "Shared Tenancy Deployments" },
+      { value: 3, suffix: "", label: "Countries Served" },
     ]
   },
 
   // CTA Banner
   ctaBanner: {
-    title: "Ready to Build Something Amazing?",
-    subtitle: "Let's turn your idea into a vibe.",
-    button: "Start Your Project",
+    title: "Ready to Own Your Software?",
+    subtitle: "Tell us about your workflow. We'll show you what self-hosted looks like for your business.",
+    button: "Start the Conversation",
     href: "#contact"
   },
 
@@ -233,7 +230,7 @@ export const siteContent = {
     // tone ("We build, launch, and grow your product."). No "vibe coding" /
     // "wild ideas" / "digital magic" framing — that was playful but unfocused.
     description:
-      "We build, launch, and grow software products. A product studio based in Calgary, Canada.",
+      "We build customized SaaS and business automations. Fully self-hosted on your infrastructure — you own the database, we build the engine.",
     // Tagline shown in the bottom bar. No country flags (per
     // 2026-07-12 user decision — flags implied a PT/EN toggle that
     // doesn't exist; the flags were removed rather than building a toggle).
@@ -309,26 +306,23 @@ export const siteContent = {
 
   // SEO
   seo: {
-    title: "CapyCo | We build, launch, and grow your product",
-    // Outcome-led meta description. Matches the H1 tone. Mentions Calgary
-    // (the HQ city) without
-    // reverting to "vibe coding" / "wild ideas into digital magic" framing.
+    title: "CapyCo | Custom SaaS & Business Automation — Self-Hosted, Client-Owned",
+    // B2B meta description. Targets buyers searching for self-hosted alternatives,
+    // custom SaaS, and data-sovereign automation. No jargon, no fluff.
     description:
-      "CapyCo is a product studio in Calgary. We design, build, and market software people actually use — see Grapplr, our BJJ partner-finder app.",
-    // Buyer-Google-search-speak. Removed: "vibe coding", "vibe-first coding"
-    // (jargon nobody searches). Added: "Calgary" (HQ city, helps local SEO).
+      "CapyCo builds customized SaaS platforms and business process automations deployed on your infrastructure. You own the database, the keys, and the code. Calgary-based, serving businesses globally.",
     keywords: [
-      "product studio",
-      "MVP development agency",
-      "SaaS development",
-      "startup development agency",
-      "app development",
-      "Calgary",
-      "web development",
-      "marketing agency",
-      "digital marketing",
-      "custom development",
-      "BJJ training partner app"
+      "custom SaaS development",
+      "self-hosted software",
+      "business automation",
+      "data sovereignty",
+      "client-owned database",
+      "on-premise SaaS",
+      "private cloud deployment",
+      "workflow automation",
+      "bespoke enterprise software",
+      "Calgary software development",
+      "no vendor lock-in"
     ],
     ogImage: "/images/og-image.png",
     twitterHandle: "@capyco"
