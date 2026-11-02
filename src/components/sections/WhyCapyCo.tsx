@@ -1,6 +1,6 @@
 "use client";
 
-import { Globe, Rocket, TrendingUp, Zap, Coffee, type LucideIcon } from "lucide-react";
+import { Globe, Rocket, TrendingUp, Zap, Coffee, Shield, Settings, Lock, type LucideIcon } from "lucide-react";
 import { siteContent } from "@/content/site-content";
 import { GsapReveal } from "@/components/shared/GsapReveal";
 
@@ -10,6 +10,9 @@ const featureIcons: Record<string, LucideIcon> = {
   TrendingUp,
   Globe,
   Coffee,
+  Shield,
+  Settings,
+  Lock,
 };
 
 export function WhyCapyCo() {
